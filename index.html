@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>一块钱周末挑战｜先赚到第一块钱</title>
+  <meta name="description" content="一块钱周末挑战：和同路人一起，用一个周末做出能收到第一笔付费的小项目。关注公众号发送“周末挑战”进入微信群。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://weekend.sightx.top/" />
+  <meta property="og:title" content="一块钱周末挑战" />
+  <meta property="og:description" content="先赚到第一块钱，再谈完美。每个周末，和同路人一起做出能收款的小项目。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="一块钱周末挑战" />
+  <meta property="og:url" content="https://weekend.sightx.top/" />
+  <meta property="og:image" content="https://weekend.sightx.top/hero-multi-device.png" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="一块钱周末挑战｜先赚到第一块钱" />
+  <meta name="twitter:description" content="和同路人一起，用一个周末做出能收到第一笔付费的小项目。" />
+  <meta name="twitter:image" content="https://weekend.sightx.top/hero-multi-device.png" />
+  <meta name="author" content="大熊" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #0b0c10; --card:#111218; --fg:#eaeef2; --muted:#a8b3be; --brand:#10b981; --brand-2:#5eead4; --border:#1f2733; --accent:#93c5fd;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, "Noto Sans", sans-serif;}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:48px 0}
+    .badge{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12px;letter-spacing:.02em}
+    h1{font-size:48px;line-height:1.05;margin:.4em 0 .2em}
+    h2{font-size:28px;margin:0 0 8px}
+    h3{font-size:20px;margin:0 0 8px}
+    p{color:var(--muted);line-height:1.7}
+    .card{background:linear-gradient(180deg,#0e1117, #0b0c10);border:1px solid var(--border);border-radius:18px;padding:20px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;border:1px solid var(--border);padding:12px 16px;background:#121621;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border:none}
+    .btn.ghost{background:transparent}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#0c1117;border:1px dashed var(--border);padding:10px 12px;border-radius:12px;font-size:13px;color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .section{padding:28px 0}
+    .kicker{font-size:13px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+    .timeline{display:grid;gap:12px}
+    .step{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start}
+    .step .dot{width:56px;height:56px;border-radius:14px;background:#0d1218;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
+    .list{display:grid;gap:10px}
+    .list li{list-style:none;display:flex;gap:10px}
+    .list li::before{content:"✔";color:var(--brand);opacity:.9}
+    .muted{color:var(--muted)}
+    .footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-size:12px;padding:6px 10px;border-radius:999px;background:#0f1621;border:1px solid var(--border);color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .hero-side{display:flex;flex-direction:column;gap:20px;align-items:stretch;justify-content:flex-start}
+    .gallery-card{position:relative;display:block;border-radius:14px;border:1px solid var(--border);background:#0d1218;overflow:hidden;aspect-ratio:16/9;box-shadow:0 12px 28px rgba(8,16,29,0.25)}
+    .gallery-card img{width:100%;height:100%;object-fit:cover;display:block}
+    .gallery-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(180deg,rgba(11,12,16,0) 0%,rgba(11,12,16,0.92) 95%);font-size:13px;color:var(--muted)}
+    .qr{height:auto;border-radius:12px;background:#0c141d;border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);padding:12px}
+    .qr img{width:100%;height:auto;max-width:260px;display:block}
+    @media (max-width: 940px){
+      .hero{grid-template-columns:1fr}
+      .hero-side{order:-1;gap:18px}
+      h1{font-size:40px}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .gallery-card{box-shadow:0 10px 22px rgba(8,16,29,0.22)}
+      .gallery-card figcaption{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:14px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2))"></div>
+        <strong>一块钱周末挑战</strong>
+      </div>
+      <div class="chips">
+        <a href="#join" class="chip">加入挑战</a>
+        <a href="#rules" class="chip">规则</a>
+        <a href="#community" class="chip">社区地点</a>
+        <a href="#faq" class="chip">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge">先赚到第一块钱</span>
+        <h1>用一个周末，做出能收款的<strong>小项目</strong></h1>
+        <p>与同路人一起，从 <strong>选题 → 最小可用版本(MVP) → 上线收款 → 周日晚复盘</strong>。目标简单直接：<strong>周日之前拿到第一笔「¥1+」真实付费</strong>，验证有人愿意买单。</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#join">立即加入挑战</a>
+          <a class="btn ghost" href="#how">玩法指南</a>
+        </div>
+        <div class="cta-row">
+          <div class="pill">每个周末自发进行 · 不售课 · 纯实践互助</div>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="card">
+          <h2 style="margin-top:0">报名方式</h2>
+          <ol class="list" style="margin:0;padding:0">
+            <li><span>关注微信公众号：<strong>大熊思考</strong></span></li>
+            <li><span>发送关键词：<strong>周末挑战</strong></span></li>
+            <li><span>收到自动回复，进入微信群（或获取入群方式）</span></li>
+          </ol>
+          <div class="section" style="padding-top:16px">
+            <div class="qr">
+              <img src="wechat-qr.jpg" alt="大熊思考公众号二维码" width="344" height="344" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <p class="muted" style="margin:6px 0 0">温馨提示：本活动免费，入群仅用于互相协作、复盘与展示。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="kicker">Step 1</div>
+          <h2>选一个能当天上线的点子</h2>
+          <p>越小越好：如「批量改写小红书标题」「封面模板包」「微课 15 分钟」等。原则：当晚能出雏形。</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Step 2</div>
+          <h2>做 MVP（最小可用版本）</h2>
+          <p>先能用再好看：用现成工具 / AI 迅速拼装——Notion、表单、自动化、现成模板或脚本。</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Step 3</div>
+          <h2>上线收款 + 周日晚复盘</h2>
+          <p>把「购买方式」摆到最显眼处，哪怕只是 ¥1。周日直播里分享你的过程、踩坑与下一步迭代。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section">
+      <div class="card">
+        <h2 style="margin-top:0">周末时间线（建议）</h2>
+        <div class="timeline">
+          <div class="step">
+            <div class="dot">周六</div>
+            <div>
+              <strong>09:00 立题 & 承诺</strong>
+              <p class="muted">在群里公开你的题目与目标价（¥1 起），并发第一条进展。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">周六</div>
+            <div>
+              <strong>14:00 MVP 出形</strong>
+              <p class="muted">能被人试用 / 观看 / 付款的最小版本，截图或链接在群里打卡。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">周日</div>
+            <div>
+              <strong>12:00 上线收款</strong>
+              <p class="muted">把支付方式（微店/小报童/知识星球付费帖/淘系/拼多多券等）挂上并测试打通。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">周日</div>
+            <div>
+              <strong>20:00 直播复盘</strong>
+              <p class="muted">腾讯会议直播：展示作品，分享过程、数据与下周迭代计划。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / LOCATIONS -->
+    <section id="community" class="section">
+      <div class="card">
+        <h2 style="margin-top:0">活动地点 & 协作方式</h2>
+        <div class="grid cols-2">
+          <div>
+            <ul class="list" style="padding:0;margin:0">
+              <li><strong>微信群</strong>：用于实时聊天、更新和激励。</li>
+              <li><strong>大熊思考 · 小红书</strong>：发布项目进展、周记、灵感。</li>
+              <li><strong>周日直播 · 腾讯会议</strong>：展示你构建的内容并查看他人的作品。</li>
+              <li><strong>大熊思考 · 公众号</strong>：用于公告和灵感。</li>
+            </ul>
+          </div>
+          <div>
+            <div class="gallery community-gallery">
+              <figure class="gallery-card">
+                <img src="hero-multi-device.png" alt="多设备协作界面，展示参与者成果作品合集" width="2730" height="1535" loading="lazy" decoding="async" />
+                <figcaption>多设备协作页面：周末挑战作品实时同步。</figcaption>
+              </figure>
+              <figure class="gallery-card">
+                <img src="hero-message-reminder.png" alt="微信群消息提醒展示团队沟通进展" width="2730" height="1535" loading="lazy" decoding="async" />
+                <figcaption>微信群打卡提醒，让进度透明可见。</figcaption>
+              </figure>
+              <figure class="gallery-card">
+                <img src="hero-video-conference.png" alt="视频会议中成员在线复盘周末挑战" width="1312" height="736" loading="lazy" decoding="async" />
+                <figcaption>周日晚视频复盘，共享成果与下一步计划。</figcaption>
+              </figure>
+            </div>
+            <p class="muted" style="margin-top:10px">* 社群日常协作场景：多端调试、实时提醒与直播复盘。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAMPLE IDEAS -->
+    <section class="section">
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="kicker">灵感 01</div>
+          <h2>短视频封面模板</h2>
+          <p>提供 PSD/Canva 模板 + 使用教程。基础免费，¥1 解锁完整版与配色方案。</p>
+        </div>
+        <div class="card">
+          <div class="kicker">灵感 02</div>
+          <h2>标题批量改写小工具</h2>
+          <p>网页上传 CSV 一键改写 100 个标题。试用 10 条免费，¥1 解锁全部导出。</p>
+        </div>
+        <div class="card">
+          <div class="kicker">灵感 03</div>
+          <h2>15 分钟微课</h2>
+          <p>如「手机三点布光」「预算 500 元搭建播客」。¥1 内测价开售，收集反馈后迭代。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules" class="section">
+      <div class="card">
+        <h2 style="margin-top:0">简单规则（真能动起来的那种）</h2>
+        <ul class="list" style="padding:0;margin:0">
+          <li>必须在本周末内发布可用版本，并附「可购买」或「可打赏」的页面/二维码。</li>
+          <li>定价不限，<strong>建议从 ¥1 起</strong>；核心目标是「拿到第一笔真实付款」。</li>
+          <li>周日晚在直播/群里复盘：展示页面、讲清路径与下一步计划。</li>
+          <li>禁止刷单作假；允许团队协作，但请明确分工与收益方式。</li>
+          <li>不售课、不收会费；欢迎自愿赞助维持运营。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- JOIN -->
+    <section id="join" class="section">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2 style="margin-top:0">现在加入</h2>
+          <p>扫描右侧二维码或在微信搜索公众号 <strong>「大熊思考」</strong>，发送关键词 <strong>「周末挑战」</strong>，即可获取入群方式。</p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip">不要求背景</span>
+            <span class="chip">可以用 AI</span>
+            <span class="chip">可以卖模板/工具/课程/服务</span>
+            <span class="chip">从 0 到 1</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="qr">
+            <img src="wechat-qr.jpg" alt="扫码进入周末挑战报名渠道" width="344" height="344" loading="lazy" decoding="async" />
+          </div>
+          <p class="muted" style="margin:8px 0 0">* 扫码即可查看活动说明与微信群入群方式。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2 style="margin-top:0">常见问题</h2>
+          <details open>
+            <summary><strong>一定要赚到钱才算成功吗？</strong></summary>
+            <p class="muted">核心目标是「验证有人愿意为它付费」。哪怕仅 ¥1，也说明你找到了愿意购买的用户与渠道。</p>
+          </details>
+          <details>
+            <summary><strong>可以做免费产品吗？</strong></summary>
+            <p class="muted">可以，但请至少放一个「打赏/解锁完整版」入口，用真实的数据来校验需求强度。</p>
+          </details>
+          <details>
+            <summary><strong>不会写代码怎么办？</strong></summary>
+            <p class="muted">完全没问题。你可以卖模板、清单、海报、课程、咨询服务，或用现成工具拼装一个能付费的页面。</p>
+          </details>
+          <details>
+            <summary><strong>如何展示成果？</strong></summary>
+            <p class="muted">周日晚腾讯会议直播展示；平时在微信群打卡，在小红书发进展笔记（@大熊思考）。</p>
+          </details>
+        </div>
+        <div class="card">
+          <h2 style="margin-top:0">给第一次参加的你</h2>
+          <ul class="list" style="padding:0;margin:0">
+            <li>把范围再缩小：<em>今晚能上线</em> 才是好范围。</li>
+            <li>优先「可被购买」：哪怕是 ¥1 也要能下单。</li>
+            <li>公开进展：让社群成为你的「外部监督」。</li>
+            <li>复盘要具体：数据、渠道、问题、下一步。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div>© <span id="y"></span> 一块钱周末挑战 · Made with ❤️ by 大熊</div>
+      <div class="chips">
+        <a class="chip" href="#join">加入挑战</a>
+        <a class="chip" href="#community">社区地点</a>
+        <a class="chip" href="#rules">规则</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationEvent",
+      "name": "一块钱周末挑战",
+      "description": "周末 48 小时，用最小可用版本拿下第一笔付费，与同路人一起冲刺和复盘。",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "startDate": "2024-01-01",
+      "endDate": "2024-12-31",
+      "organizer": {
+        "@type": "Organization",
+        "name": "大熊思考",
+        "url": "https://weekend.sightx.top/"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1W",
+        "startTime": "09:00",
+        "endTime": "21:00",
+        "scheduleTimezone": "Asia/Shanghai"
+      },
+      "url": "https://weekend.sightx.top/"
+    }
+  </script>
+</body>
+</html>
