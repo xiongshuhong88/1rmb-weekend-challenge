@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>一块钱周末挑战｜先赚到第一块钱</title>
-  <meta name="description" content="一块钱周末挑战：和同路人一起，用一个周末做出能收到第一笔付费的小项目。关注公众号发送“周末挑战”进入微信群。" />
+  <meta name="description" content="一块钱周末挑战：报名费 ¥1，和同路人一起用一个周末做出能收到第一笔付费的小项目。关注公众号发送“周末挑战”进入微信群。" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://weekend.sightx.top/" />
   <meta property="og:title" content="一块钱周末挑战" />
-  <meta property="og:description" content="先赚到第一块钱，再谈完美。每个周末，和同路人一起做出能收款的小项目。" />
+  <meta property="og:description" content="先赚到第一块钱，再谈完美。报名费 ¥1，每个周末和同路人一起做出能收款的小项目。" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="一块钱周末挑战" />
   <meta property="og:url" content="https://weekend.sightx.top/" />
@@ -16,60 +16,85 @@
   <meta property="og:locale" content="zh_CN" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="一块钱周末挑战｜先赚到第一块钱" />
-  <meta name="twitter:description" content="和同路人一起，用一个周末做出能收到第一笔付费的小项目。" />
+  <meta name="twitter:description" content="报名费 ¥1，和同路人一起用一个周末做出能收到第一笔付费的小项目。" />
   <meta name="twitter:image" content="https://weekend.sightx.top/hero-multi-device.png" />
   <meta name="author" content="大熊" />
   <meta name="color-scheme" content="light dark" />
   <style>
     :root{
-      --bg: #0b0c10; --card:#111218; --fg:#eaeef2; --muted:#a8b3be; --brand:#10b981; --brand-2:#5eead4; --border:#1f2733; --accent:#93c5fd;
+      --bg:#0b0c10; --card:#111218; --fg:#eaeef2; --muted:#a8b3be; --brand:#10b981; --brand-2:#5eead4; --border:#1f2733; --accent:#93c5fd;
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, "Noto Sans", sans-serif;}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:48px 0}
-    .badge{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12px;letter-spacing:.02em}
+    .container{width:min(96vw,1280px);margin:0 auto;padding:24px}
+    .countdown-banner{background:linear-gradient(135deg,#0d1a2b,#0a2b21);border-bottom:1px solid rgba(94,234,212,0.3);padding:18px 0}
+    .countdown-banner__inner{width:min(92vw,960px);margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:14px}
+    .countdown-banner__title{font-size:26px;font-weight:800;color:#f3f4f6;letter-spacing:.04em}
+    .countdown-banner__title span{color:var(--brand-2)}
+    .countdown-banner__label{font-size:18px;color:rgba(226,232,240,0.8);letter-spacing:.08em}
+    .countdown-banner__timer{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+    .countdown-segment{display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(8,25,38,0.72);border:1px solid rgba(16,185,129,0.45);border-radius:16px;padding:14px 22px;min-width:120px;box-shadow:0 12px 30px rgba(8,25,38,0.45)}
+    .countdown-segment span{font-size:40px;font-weight:800;color:#facc15;text-shadow:0 0 24px rgba(250,204,21,0.35)}
+    .countdown-segment small{font-size:14px;color:rgba(226,232,240,0.75);text-transform:uppercase;letter-spacing:.12em}
+    .countdown-banner__note{font-size:15px;color:rgba(148,163,184,0.9);letter-spacing:.04em}
+    .hero{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:32px;align-items:start;padding:48px 0}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border-radius:999px;padding:6px 16px;font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;margin:0}
     h1{font-size:48px;line-height:1.05;margin:.4em 0 .2em}
-    h2{font-size:28px;margin:0 0 8px}
+    h2{font-size:28px;margin:0 0 12px}
     h3{font-size:20px;margin:0 0 8px}
-    p{color:var(--muted);line-height:1.7}
-    .card{background:linear-gradient(180deg,#0e1117, #0b0c10);border:1px solid var(--border);border-radius:18px;padding:20px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;border:1px solid var(--border);padding:12px 16px;background:#121621;font-weight:600}
+    p{color:var(--muted);line-height:1.7;margin:.6em 0}
+    .card{background:linear-gradient(180deg,#0f1218,#0b0c10);border:1px solid var(--border);border-radius:18px;padding:24px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;border:1px solid var(--border);padding:12px 18px;background:#121621;font-weight:600}
     .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border:none}
     .btn.ghost{background:transparent}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:#0c1117;border:1px dashed var(--border);padding:10px 12px;border-radius:12px;font-size:13px;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#0c1117;border:1px dashed var(--border);padding:10px 14px;border-radius:12px;font-size:13px;color:var(--muted)}
     .grid{display:grid;gap:16px}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .section{padding:28px 0}
+    .section{padding:32px 0}
     .kicker{font-size:13px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-    .timeline{display:grid;gap:12px}
-    .step{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start}
-    .step .dot{width:56px;height:56px;border-radius:14px;background:#0d1218;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
-    .list{display:grid;gap:10px}
+    .timeline{display:grid;gap:18px}
+    .step{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start}
+    .step .dot{width:60px;height:60px;border-radius:16px;background:#0d1218;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
+    .list{display:grid;gap:12px;padding:0;margin:0}
     .list li{list-style:none;display:flex;gap:10px}
     .list li::before{content:"✔";color:var(--brand);opacity:.9}
     .muted{color:var(--muted)}
-    .footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
     .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{font-size:12px;padding:6px 10px;border-radius:999px;background:#0f1621;border:1px solid var(--border);color:var(--muted)}
-    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .hero-side{display:flex;flex-direction:column;gap:20px;align-items:stretch;justify-content:flex-start}
-    .gallery-card{position:relative;display:block;border-radius:14px;border:1px solid var(--border);background:#0d1218;overflow:hidden;aspect-ratio:16/9;box-shadow:0 12px 28px rgba(8,16,29,0.25)}
-    .gallery-card img{width:100%;height:100%;object-fit:cover;display:block}
-    .gallery-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(180deg,rgba(11,12,16,0) 0%,rgba(11,12,16,0.92) 95%);font-size:13px;color:var(--muted)}
-    .qr{height:auto;border-radius:12px;background:#0c141d;border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);padding:12px}
-    .qr img{width:100%;height:auto;max-width:260px;display:block}
-    @media (max-width: 940px){
-      .hero{grid-template-columns:1fr}
-      .hero-side{order:-1;gap:18px}
-      h1{font-size:40px}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr}
-      .gallery-card{box-shadow:0 10px 22px rgba(8,16,29,0.22)}
-      .gallery-card figcaption{font-size:12px}
+    .chip{font-size:12px;padding:6px 12px;border-radius:999px;background:#0f1621;border:1px solid var(--border);color:var(--muted)}
+    .hero-copy{max-width:620px}
+    .hero-side{display:flex;flex-direction:column;gap:24px}
+    .section-media{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,600px);gap:32px;align-items:center}
+    .section-media.media-left{grid-template-columns:minmax(260px,600px) minmax(0,1fr)}
+    .section-media.media-left .section-media__visual{order:-1}
+    .section-media__visual{width:100%;justify-self:center}
+    .section-media__visual img{width:100%;max-width:600px;border-radius:20px;border:1px solid var(--border);box-shadow:0 18px 40px rgba(8,16,29,0.32);display:block}
+    .section-media__caption{margin-top:12px;font-size:13px;color:var(--muted);text-align:center}
+    .qr{border-radius:12px;background:#0c141d;border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;padding:16px}
+    .qr img{width:100%;height:auto;max-width:215px;display:block}
+    .footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr;gap:24px;padding:36px 0}
+      h1{font-size:42px}
+      .section-media{grid-template-columns:1fr}
+      .section-media.media-left .section-media__visual{order:0}
+      .countdown-banner__title{font-size:24px}
+      .countdown-segment span{font-size:34px}
+    }
+    @media (max-width:640px){
+      .container{padding:20px}
+      h1{font-size:36px}
+      h2{font-size:24px}
+      .card{padding:20px}
+      .pill{font-size:12px}
+      .countdown-banner{padding:16px 0}
+      .countdown-banner__inner{padding:0 16px;gap:12px}
+      .countdown-banner__title{font-size:20px}
+      .countdown-banner__label{font-size:15px}
+      .countdown-banner__timer{gap:12px}
+      .countdown-segment{flex:1;min-width:calc(50% - 12px);padding:12px 10px}
+      .countdown-segment span{font-size:30px}
     }
   </style>
 </head>
@@ -88,36 +113,62 @@
       </div>
     </nav>
   </header>
+  <div class="countdown-banner" role="region" aria-live="polite">
+    <div class="countdown-banner__inner">
+      <div class="countdown-banner__title"><span id="countdown-title">下一个挑战</span>：<span id="challenge-range">--</span></div>
+      <div class="countdown-banner__label" id="countdown-label">距离开始还有</div>
+      <div class="countdown-banner__timer">
+        <div class="countdown-segment">
+          <span id="countdown-days">--</span>
+          <small>天</small>
+        </div>
+        <div class="countdown-segment">
+          <span id="countdown-hours">--</span>
+          <small>小时</small>
+        </div>
+        <div class="countdown-segment">
+          <span id="countdown-minutes">--</span>
+          <small>分钟</small>
+        </div>
+        <div class="countdown-segment">
+          <span id="countdown-seconds">--</span>
+          <small>秒</small>
+        </div>
+      </div>
+      <div class="countdown-banner__note" id="countdown-note">周五晚 20:00 开营 · 周日 24:00 收队（北京时间）</div>
+    </div>
+  </div>
 
   <main class="container">
     <!-- HERO -->
     <section class="hero">
-      <div>
+      <div class="hero-copy">
         <span class="badge">先赚到第一块钱</span>
         <h1>用一个周末，做出能收款的<strong>小项目</strong></h1>
         <p>与同路人一起，从 <strong>选题 → 最小可用版本(MVP) → 上线收款 → 周日晚复盘</strong>。目标简单直接：<strong>周日之前拿到第一笔「¥1+」真实付费</strong>，验证有人愿意买单。</p>
+        <p><strong>本活动报名费为 ¥1</strong>，我们以示范项目的方式带你走完从 0 到 1 的真实成交闭环。</p>
         <div class="cta-row">
           <a class="btn primary" href="#join">立即加入挑战</a>
           <a class="btn ghost" href="#how">玩法指南</a>
         </div>
         <div class="cta-row">
-          <div class="pill">每个周末自发进行 · 不售课 · 纯实践互助</div>
+          <div class="pill">报名费 ¥1 · 每周末开营 · 纯实践互助</div>
         </div>
       </div>
       <div class="hero-side">
         <div class="card">
           <h2 style="margin-top:0">报名方式</h2>
-          <ol class="list" style="margin:0;padding:0">
-            <li><span>关注微信公众号：<strong>大熊思考</strong></span></li>
-            <li><span>发送关键词：<strong>周末挑战</strong></span></li>
-            <li><span>收到自动回复，进入微信群（或获取入群方式）</span></li>
+          <ol class="list">
+            <li>关注微信公众号：<strong>大熊思考</strong></li>
+            <li>发送关键词：<strong>周末挑战</strong></li>
+            <li>收到自动回复，加入微信群或获取入群方式</li>
           </ol>
-          <div class="section" style="padding-top:16px">
+          <div class="section" style="padding-top:18px">
             <div class="qr">
-              <img src="wechat-qr.jpg" alt="大熊思考公众号二维码" width="344" height="344" loading="lazy" decoding="async" />
+              <img src="wechat-qr.jpg" alt="大熊思考公众号二维码" width="215" height="215" loading="lazy" decoding="async" />
             </div>
           </div>
-          <p class="muted" style="margin:6px 0 0">温馨提示：本活动免费，入群仅用于互相协作、复盘与展示。</p>
+          <p class="muted" style="margin:10px 0 0">温馨提示：示范期报名费 ¥1，用于社群维护与资料整理。</p>
         </div>
       </div>
     </section>
@@ -145,71 +196,62 @@
 
     <!-- TIMELINE -->
     <section class="section">
-      <div class="card">
-        <h2 style="margin-top:0">周末时间线（建议）</h2>
-        <div class="timeline">
-          <div class="step">
-            <div class="dot">周六</div>
-            <div>
-              <strong>09:00 立题 & 承诺</strong>
-              <p class="muted">在群里公开你的题目与目标价（¥1 起），并发第一条进展。</p>
+      <div class="section-media">
+        <div class="card">
+          <h2 style="margin-top:0">周末时间线</h2>
+          <div class="timeline">
+            <div class="step">
+              <div class="dot">周六</div>
+              <div>
+                <strong>09:00 立题 & 承诺</strong>
+                <p class="muted">在群里公开你的题目与目标价（¥1 起），发布一条小红书笔记。</p>
+              </div>
             </div>
-          </div>
-          <div class="step">
-            <div class="dot">周六</div>
-            <div>
-              <strong>14:00 MVP 出形</strong>
-              <p class="muted">能被人试用 / 观看 / 付款的最小版本，截图或链接在群里打卡。</p>
+            <div class="step">
+              <div class="dot">周六</div>
+              <div>
+                <strong>14:00 MVP 出形</strong>
+                <p class="muted">能被人试用 / 观看 / 付款的最小版本，截图或链接在群里打卡。</p>
+              </div>
             </div>
-          </div>
-          <div class="step">
-            <div class="dot">周日</div>
-            <div>
-              <strong>12:00 上线收款</strong>
-              <p class="muted">把支付方式（微店/小报童/知识星球付费帖/淘系/拼多多券等）挂上并测试打通。</p>
+            <div class="step">
+              <div class="dot">周日</div>
+              <div>
+                <strong>12:00 上线收款</strong>
+                <p class="muted">把支付方式（二维码/微店/小报童/知识星球付费帖/淘系/拼多多券等）挂上并测试打通。</p>
+              </div>
             </div>
-          </div>
-          <div class="step">
-            <div class="dot">周日</div>
-            <div>
-              <strong>20:00 直播复盘</strong>
-              <p class="muted">腾讯会议直播：展示作品，分享过程、数据与下周迭代计划。</p>
+            <div class="step">
+              <div class="dot">周日</div>
+              <div>
+                <strong>20:00 直播复盘</strong>
+                <p class="muted">腾讯会议直播：展示作品，分享过程、数据与下周迭代计划。</p>
+              </div>
             </div>
           </div>
         </div>
+        <figure class="section-media__visual">
+          <img src="hero-video-conference.png" alt="周日晚复盘视频会议现场" width="" height="300" loading="lazy" decoding="async" />
+          <figcaption class="section-media__caption">周日晚腾讯会议复盘，展示作品并分享数据。</figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- COMMUNITY / LOCATIONS -->
     <section id="community" class="section">
-      <div class="card">
-        <h2 style="margin-top:0">活动地点 & 协作方式</h2>
-        <div class="grid cols-2">
-          <div>
-            <ul class="list" style="padding:0;margin:0">
-              <li><strong>微信群</strong>：用于实时聊天、更新和激励。</li>
-              <li><strong>大熊思考 · 小红书</strong>：发布项目进展、周记、灵感。</li>
-              <li><strong>周日直播 · 腾讯会议</strong>：展示你构建的内容并查看他人的作品。</li>
-              <li><strong>大熊思考 · 公众号</strong>：用于公告和灵感。</li>
-            </ul>
-          </div>
-          <div>
-            <div class="gallery community-gallery">
-              <figure class="gallery-card">
-                <img src="hero-multi-device.png" alt="多设备协作界面，展示参与者成果作品合集" width="2730" height="1535" loading="lazy" decoding="async" />
-                <figcaption>多设备协作页面：周末挑战作品实时同步。</figcaption>
-              </figure>
-              <figure class="gallery-card">
-                <img src="hero-message-reminder.png" alt="微信群消息提醒展示团队沟通进展" width="2730" height="1535" loading="lazy" decoding="async" />
-                <figcaption>微信群打卡提醒，让进度透明可见。</figcaption>
-              </figure>
-              <figure class="gallery-card">
-                <img src="hero-video-conference.png" alt="视频会议中成员在线复盘周末挑战" width="1312" height="736" loading="lazy" decoding="async" />
-                <figcaption>周日晚视频复盘，共享成果与下一步计划。</figcaption>
-              </figure>
-            </div>
-            <p class="muted" style="margin-top:10px">* 社群日常协作场景：多端调试、实时提醒与直播复盘。</p>
-          </div>
+      <div class="section-media media-left">
+        <figure class="section-media__visual">
+          <img src="hero-message-reminder.png" alt="微信群消息提醒帮助成员同步进度" width="" height="300" loading="lazy" decoding="async" />
+          <figcaption class="section-media__caption">微信群即时提醒，随时同步进度与素材。</figcaption>
+        </figure>
+        <div class="card">
+          <h2 style="margin-top:0">活动地点 & 协作方式</h2>
+          <ul class="list">
+            <li><strong>微信群</strong>：实时聊天交流、更新和激励。</li>
+            <li><strong>小红书</strong>：个人发布项目进展、周记、灵感的笔记，并@大熊思考。</li>
+            <li><strong>腾讯会议</strong>：周日直播讨论，展示你构建的内容并查看他人的作品。</li>
+            <li><strong>公众号</strong>：活动公告和项目介绍、案例展示-“大熊思考”公众号。</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -218,34 +260,40 @@
     <section class="section">
       <div class="grid cols-3">
         <div class="card">
-          <div class="kicker">灵感 01</div>
+          <div class="kicker">示例 01</div>
           <h2>短视频封面模板</h2>
           <p>提供 PSD/Canva 模板 + 使用教程。基础免费，¥1 解锁完整版与配色方案。</p>
         </div>
         <div class="card">
-          <div class="kicker">灵感 02</div>
+          <div class="kicker">示例 02</div>
           <h2>标题批量改写小工具</h2>
           <p>网页上传 CSV 一键改写 100 个标题。试用 10 条免费，¥1 解锁全部导出。</p>
         </div>
         <div class="card">
-          <div class="kicker">灵感 03</div>
+          <div class="kicker">示例 03</div>
           <h2>15 分钟微课</h2>
-          <p>如「手机三点布光」「预算 500 元搭建播客」。¥1 内测价开售，收集反馈后迭代。</p>
+          <p>如「手机三点布光」「0 元搭建播客教程」。¥1 内测价开售，收集反馈后迭代。</p>
         </div>
       </div>
     </section>
 
     <!-- RULES -->
     <section id="rules" class="section">
-      <div class="card">
-        <h2 style="margin-top:0">简单规则（真能动起来的那种）</h2>
-        <ul class="list" style="padding:0;margin:0">
-          <li>必须在本周末内发布可用版本，并附「可购买」或「可打赏」的页面/二维码。</li>
-          <li>定价不限，<strong>建议从 ¥1 起</strong>；核心目标是「拿到第一笔真实付款」。</li>
-          <li>周日晚在直播/群里复盘：展示页面、讲清路径与下一步计划。</li>
-          <li>禁止刷单作假；允许团队协作，但请明确分工与收益方式。</li>
-          <li>不售课、不收会费；欢迎自愿赞助维持运营。</li>
-        </ul>
+      <div class="section-media">
+        <div class="card">
+          <h2 style="margin-top:0">简单规则</h2>
+          <ul class="list">
+            <li>必须在本周末内发布可用版本，并附「可购买」或「可打赏」的页面/二维码。</li>
+            <li>定价不限，<strong>建议从 ¥1 起</strong>；核心目标是「拿到第一笔真实付款」。</li>
+            <li>周日晚在直播/群里复盘：展示页面、讲清路径与下一步计划。</li>
+            <li>禁止刷单作假；允许团队协作，但请明确分工与收益方式。</li>
+            <li>不售课、不收会费；欢迎自愿赞助维持运营。</li>
+          </ul>
+        </div>
+        <figure class="section-media__visual">
+          <img src="hero-multi-device.png" alt="多设备协作展示规则落地执行" width="" height="300" loading="lazy" decoding="async" />
+          <figcaption class="section-media__caption">多端展示成果与支付入口，确保真实成交。</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -264,9 +312,9 @@
         </div>
         <div class="card">
           <div class="qr">
-            <img src="wechat-qr.jpg" alt="扫码进入周末挑战报名渠道" width="344" height="344" loading="lazy" decoding="async" />
+            <img src="wechat-qr.jpg" alt="扫码进入周末挑战报名渠道" width="215" height="215" loading="lazy" decoding="async" />
           </div>
-          <p class="muted" style="margin:8px 0 0">* 扫码即可查看活动说明与微信群入群方式。</p>
+          <p class="muted" style="margin:8px 0 0">* 扫码关注公众号，发送关键词「周末挑战」查看活动说明与微信群入群方式。</p>
         </div>
       </div>
     </section>
@@ -318,7 +366,129 @@
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){
+      const yearEl = document.getElementById('y');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+
+    (function(){
+      const rangeEl = document.getElementById('challenge-range');
+      const daysEl = document.getElementById('countdown-days');
+      const hoursEl = document.getElementById('countdown-hours');
+      const minutesEl = document.getElementById('countdown-minutes');
+      const secondsEl = document.getElementById('countdown-seconds');
+      if (!rangeEl || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+      const titleEl = document.getElementById('countdown-title');
+      const labelEl = document.getElementById('countdown-label');
+      const noteEl = document.getElementById('countdown-note');
+
+      const MS_SECOND = 1000;
+      const MS_MINUTE = 60 * MS_SECOND;
+      const MS_HOUR = 60 * MS_MINUTE;
+      const MS_DAY = 24 * MS_HOUR;
+      const WEEK_MS = 7 * MS_DAY;
+      const EVENT_DURATION_MS = 52 * MS_HOUR;
+      const START_WEEKDAY = 5; // Friday
+      const START_HOUR_UTC = 12; // 20:00 Asia/Shanghai
+
+      const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      });
+
+      function dateParts(date){
+        const parts = dateFormatter.formatToParts(date);
+        return {
+          year: parts.find(p => p.type === 'year').value,
+          month: parts.find(p => p.type === 'month').value,
+          day: parts.find(p => p.type === 'day').value
+        };
+      }
+
+      function formatRange(start, end){
+        const s = dateParts(start);
+        const e = dateParts(end);
+        if (s.year === e.year && s.month === e.month){
+          return `${s.year}年${s.month}月${s.day}日至${e.day}日`;
+        }
+        if (s.year === e.year){
+          return `${s.year}年${s.month}月${s.day}日至${e.month}月${e.day}日`;
+        }
+        return `${s.year}年${s.month}月${s.day}日至${e.year}年${e.month}月${e.day}日`;
+      }
+
+      function computeUpcomingStart(now){
+        const start = new Date(Date.UTC(
+          now.getUTCFullYear(),
+          now.getUTCMonth(),
+          now.getUTCDate(),
+          START_HOUR_UTC, 0, 0, 0
+        ));
+        let delta = START_WEEKDAY - now.getUTCDay();
+        if (delta < 0) delta += 7;
+        start.setUTCDate(start.getUTCDate() + delta);
+        if (delta === 0 && now >= start){
+          start.setUTCDate(start.getUTCDate() + 7);
+        }
+        return start;
+      }
+
+      function getWindow(now){
+        const upcomingStart = computeUpcomingStart(now);
+        const previousStart = new Date(upcomingStart.getTime() - WEEK_MS);
+        const previousEnd = new Date(previousStart.getTime() + EVENT_DURATION_MS);
+
+        if (now >= previousStart && now < previousEnd){
+          return { mode: 'running', start: previousStart, end: previousEnd };
+        }
+        return { mode: 'upcoming', start: upcomingStart, end: new Date(upcomingStart.getTime() + EVENT_DURATION_MS) };
+      }
+
+      function pad(number){
+        return String(number).padStart(2,'0');
+      }
+
+      function update(){
+        const now = new Date();
+        let window = getWindow(now);
+        let target = window.mode === 'running' ? window.end : window.start;
+
+        if (now >= target){
+          window = getWindow(new Date());
+          target = window.mode === 'running' ? window.end : window.start;
+        }
+
+        const diff = target.getTime() - now.getTime();
+        const days = Math.floor(diff / MS_DAY);
+        const hours = Math.floor((diff % MS_DAY) / MS_HOUR);
+        const minutes = Math.floor((diff % MS_HOUR) / MS_MINUTE);
+        const seconds = Math.floor((diff % MS_MINUTE) / MS_SECOND);
+
+        daysEl.textContent = pad(days);
+        hoursEl.textContent = pad(hours);
+        minutesEl.textContent = pad(minutes);
+        secondsEl.textContent = pad(seconds);
+
+        const displayStart = window.start;
+        const displayEnd = new Date(window.start.getTime() + 2 * MS_DAY);
+        rangeEl.textContent = formatRange(displayStart, displayEnd);
+        if (titleEl){
+          titleEl.textContent = window.mode === 'running' ? '当前挑战' : '下一次挑战';
+        }
+        labelEl.textContent = window.mode === 'running'
+          ? '挑战进行中：距离收队还有'
+          : '距离下一次挑战还有';
+        noteEl.textContent = window.mode === 'running'
+          ? '周日 24:00 收队（北京时间）'
+          : '周五晚 20:00 开营 · 周日 24:00 收队（北京时间）';
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
   </script>
   <script type="application/ld+json">
     {
