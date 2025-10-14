@@ -20,88 +20,7 @@
   <meta name="twitter:image" content="https://weekend.sightx.top/hero-multi-device.png" />
   <meta name="author" content="大熊" />
   <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg:#0b0c10; --card:#111218; --fg:#eaeef2; --muted:#a8b3be; --brand:#10b981; --brand-2:#5eead4; --border:#1f2733; --accent:#93c5fd;
-    }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(96vw,1280px);margin:0 auto;padding:24px}
-    .site-nav{display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .site-brand{display:flex;align-items:center;gap:12px}
-    .logo-mark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#0ef1a7,#4be7dc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#061616;box-shadow:0 12px 28px rgba(64,224,208,0.35)}
-    .site-title{font-weight:700;font-size:20px;letter-spacing:.04em;color:var(--fg)}
-    .countdown-banner{background:linear-gradient(135deg,#0d1a2b,#0a2b21);border-bottom:1px solid rgba(94,234,212,0.3);padding:18px 0}
-    .countdown-banner__inner{width:min(92vw,960px);margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:18px}
-    .countdown-banner__title{font-size:48px;font-weight:800;color:#f3f4f6;letter-spacing:.02em}
-    .countdown-banner__title span{color:var(--brand-2)}
-    .countdown-banner__label{font-size:22px;color:rgba(226,232,240,0.82);letter-spacing:.06em}
-    .countdown-banner__timer{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
-    .countdown-segment{display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(8,25,38,0.72);border:1px solid rgba(16,185,129,0.45);border-radius:16px;padding:14px 22px;min-width:120px;box-shadow:0 12px 30px rgba(8,25,38,0.45)}
-    .countdown-segment span{font-size:40px;font-weight:800;color:#facc15;text-shadow:0 0 24px rgba(250,204,21,0.35)}
-    .countdown-segment small{font-size:14px;color:rgba(226,232,240,0.75);text-transform:uppercase;letter-spacing:.12em}
-    .countdown-banner__note{font-size:15px;color:rgba(148,163,184,0.9);letter-spacing:.04em}
-    .hero{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:32px;align-items:start;padding:48px 0}
-    .badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border-radius:999px;padding:6px 16px;font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;margin:0}
-    h1{font-size:48px;line-height:1.05;margin:.4em 0 .2em}
-    h2{font-size:28px;margin:0 0 12px}
-    h3{font-size:20px;margin:0 0 8px}
-    p{color:var(--muted);line-height:1.7;margin:.6em 0}
-    .card{background:linear-gradient(180deg,#0f1218,#0b0c10);border:1px solid var(--border);border-radius:18px;padding:24px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;border:1px solid var(--border);padding:12px 18px;background:#121621;font-weight:600}
-    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081016;border:none}
-    .btn.ghost{background:transparent}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:#0c1117;border:1px dashed var(--border);padding:10px 14px;border-radius:12px;font-size:13px;color:var(--muted)}
-    .grid{display:grid;gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .section{padding:32px 0}
-    .kicker{font-size:13px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-    .timeline{display:grid;gap:18px}
-    .step{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start}
-    .step .dot{width:60px;height:60px;border-radius:16px;background:#0d1218;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
-    .list{display:grid;gap:12px;padding:0;margin:0}
-    .list li{list-style:none;display:flex;gap:10px}
-    .list li::before{content:"✔";color:var(--brand);opacity:.9}
-    .muted{color:var(--muted)}
-    .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{font-size:12px;padding:6px 12px;border-radius:999px;background:#0f1621;border:1px solid var(--border);color:var(--muted)}
-    .hero-copy{max-width:620px}
-    .hero-side{display:flex;flex-direction:column;gap:24px}
-    .section-media{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,600px);gap:32px;align-items:center}
-    .section-media.media-left{grid-template-columns:minmax(260px,600px) minmax(0,1fr)}
-    .section-media.media-left .section-media__visual{order:-1}
-    .section-media__visual{width:100%;justify-self:center}
-    .section-media__visual img{width:100%;max-width:600px;border-radius:20px;border:1px solid var(--border);box-shadow:0 18px 40px rgba(8,16,29,0.32);display:block}
-    .section-media__caption{margin-top:12px;font-size:13px;color:var(--muted);text-align:center}
-    .qr{border-radius:12px;background:#0c141d;border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;padding:16px}
-    .qr img{width:100%;height:auto;max-width:215px;display:block}
-    .footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
-    @media (max-width:1024px){
-      .hero{grid-template-columns:1fr;gap:24px;padding:36px 0}
-      h1{font-size:42px}
-      .section-media{grid-template-columns:1fr}
-      .section-media.media-left .section-media__visual{order:0}
-      .countdown-banner__title{font-size:40px}
-      .countdown-banner__label{font-size:18px}
-      .countdown-segment span{font-size:36px}
-    }
-    @media (max-width:640px){
-      .container{padding:20px}
-      h1{font-size:36px}
-      h2{font-size:24px}
-      .card{padding:20px}
-      .pill{font-size:12px}
-      .countdown-banner{padding:16px 0}
-      .countdown-banner__inner{padding:0 16px;gap:12px}
-      .countdown-banner__title{font-size:30px}
-      .countdown-banner__label{font-size:16px}
-      .countdown-banner__timer{gap:12px}
-      .countdown-segment{flex:1;min-width:calc(50% - 12px);padding:12px 10px}
-      .countdown-segment span{font-size:30px}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="container">
@@ -120,8 +39,8 @@
   </header>
   <div class="countdown-banner" role="region" aria-live="polite">
     <div class="countdown-banner__inner">
-      <div class="countdown-banner__title"><span id="countdown-title">下一个挑战</span>：<span id="challenge-range">--</span></div>
-      <div class="countdown-banner__label" id="countdown-label">距离开始还有</div>
+      <div class="countdown-banner__title"><span id="countdown-title">下一次挑战</span>：<span id="challenge-range">--</span></div>
+      <div class="countdown-banner__label" id="countdown-label">距离下一次挑战还有</div>
       <div class="countdown-banner__timer">
         <div class="countdown-segment">
           <span id="countdown-days">--</span>
@@ -236,7 +155,9 @@
           </div>
         </div>
         <figure class="section-media__visual">
-          <img src="hero-video-conference.png" alt="周日晚复盘视频会议现场" width="" height="300" loading="lazy" decoding="async" />
+          <div class="media-frame">
+            <img src="hero-video-conference.png" alt="周日晚复盘视频会议现场" loading="lazy" decoding="async" />
+          </div>
           <figcaption class="section-media__caption">周日晚腾讯会议复盘，展示作品并分享数据。</figcaption>
         </figure>
       </div>
@@ -246,7 +167,9 @@
     <section id="community" class="section">
       <div class="section-media media-left">
         <figure class="section-media__visual">
-          <img src="hero-message-reminder.png" alt="微信群消息提醒帮助成员同步进度" width="" height="300" loading="lazy" decoding="async" />
+          <div class="media-frame">
+            <img src="hero-message-reminder.png" alt="微信群消息提醒帮助成员同步进度" loading="lazy" decoding="async" />
+          </div>
           <figcaption class="section-media__caption">微信群即时提醒，随时同步进度与素材。</figcaption>
         </figure>
         <div class="card">
@@ -262,7 +185,7 @@
     </section>
 
     <!-- SAMPLE IDEAS -->
-    <section class="section">
+    <section class="section sample-section">
       <div class="grid cols-3">
         <div class="card">
           <div class="kicker">示例 01</div>
@@ -296,7 +219,9 @@
           </ul>
         </div>
         <figure class="section-media__visual">
-          <img src="hero-multi-device.png" alt="多设备协作展示规则落地执行" width="" height="300" loading="lazy" decoding="async" />
+          <div class="media-frame">
+            <img src="hero-multi-device.png" alt="多设备协作展示规则落地执行" loading="lazy" decoding="async" />
+          </div>
           <figcaption class="section-media__caption">多端展示成果与支付入口，确保真实成交。</figcaption>
         </figure>
       </div>
@@ -370,131 +295,7 @@
     </div>
   </footer>
 
-  <script>
-    (function(){
-      const yearEl = document.getElementById('y');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-    })();
-
-    (function(){
-      const rangeEl = document.getElementById('challenge-range');
-      const daysEl = document.getElementById('countdown-days');
-      const hoursEl = document.getElementById('countdown-hours');
-      const minutesEl = document.getElementById('countdown-minutes');
-      const secondsEl = document.getElementById('countdown-seconds');
-      if (!rangeEl || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
-
-      const titleEl = document.getElementById('countdown-title');
-      const labelEl = document.getElementById('countdown-label');
-      const noteEl = document.getElementById('countdown-note');
-
-      const MS_SECOND = 1000;
-      const MS_MINUTE = 60 * MS_SECOND;
-      const MS_HOUR = 60 * MS_MINUTE;
-      const MS_DAY = 24 * MS_HOUR;
-      const WEEK_MS = 7 * MS_DAY;
-      const EVENT_DURATION_MS = 52 * MS_HOUR;
-      const START_WEEKDAY = 5; // Friday
-      const START_HOUR_UTC = 12; // 20:00 Asia/Shanghai
-
-      const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
-        timeZone: 'Asia/Shanghai',
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric'
-      });
-
-      function dateParts(date){
-        const parts = dateFormatter.formatToParts(date);
-        return {
-          year: parts.find(p => p.type === 'year').value,
-          month: parts.find(p => p.type === 'month').value,
-          day: parts.find(p => p.type === 'day').value
-        };
-      }
-
-      function formatRange(start, end){
-        const s = dateParts(start);
-        const e = dateParts(end);
-        if (s.year === e.year && s.month === e.month){
-          return `${s.year}年${s.month}月${s.day}日至${e.day}日`;
-        }
-        if (s.year === e.year){
-          return `${s.year}年${s.month}月${s.day}日至${e.month}月${e.day}日`;
-        }
-        return `${s.year}年${s.month}月${s.day}日至${e.year}年${e.month}月${e.day}日`;
-      }
-
-      function computeUpcomingStart(now){
-        const start = new Date(Date.UTC(
-          now.getUTCFullYear(),
-          now.getUTCMonth(),
-          now.getUTCDate(),
-          START_HOUR_UTC, 0, 0, 0
-        ));
-        let delta = START_WEEKDAY - now.getUTCDay();
-        if (delta < 0) delta += 7;
-        start.setUTCDate(start.getUTCDate() + delta);
-        if (delta === 0 && now >= start){
-          start.setUTCDate(start.getUTCDate() + 7);
-        }
-        return start;
-      }
-
-      function getWindow(now){
-        const upcomingStart = computeUpcomingStart(now);
-        const previousStart = new Date(upcomingStart.getTime() - WEEK_MS);
-        const previousEnd = new Date(previousStart.getTime() + EVENT_DURATION_MS);
-
-        if (now >= previousStart && now < previousEnd){
-          return { mode: 'running', start: previousStart, end: previousEnd };
-        }
-        return { mode: 'upcoming', start: upcomingStart, end: new Date(upcomingStart.getTime() + EVENT_DURATION_MS) };
-      }
-
-      function pad(number){
-        return String(number).padStart(2,'0');
-      }
-
-      function update(){
-        const now = new Date();
-        let window = getWindow(now);
-        let target = window.mode === 'running' ? window.end : window.start;
-
-        if (now >= target){
-          window = getWindow(new Date());
-          target = window.mode === 'running' ? window.end : window.start;
-        }
-
-        const diff = target.getTime() - now.getTime();
-        const days = Math.floor(diff / MS_DAY);
-        const hours = Math.floor((diff % MS_DAY) / MS_HOUR);
-        const minutes = Math.floor((diff % MS_HOUR) / MS_MINUTE);
-        const seconds = Math.floor((diff % MS_MINUTE) / MS_SECOND);
-
-        daysEl.textContent = pad(days);
-        hoursEl.textContent = pad(hours);
-        minutesEl.textContent = pad(minutes);
-        secondsEl.textContent = pad(seconds);
-
-        const displayStart = window.start;
-        const displayEnd = new Date(window.start.getTime() + 2 * MS_DAY);
-        rangeEl.textContent = formatRange(displayStart, displayEnd);
-        if (titleEl){
-          titleEl.textContent = window.mode === 'running' ? '当前挑战' : '下一次挑战';
-        }
-        labelEl.textContent = window.mode === 'running'
-          ? '挑战进行中：距离收队还有'
-          : '距离下一次挑战还有';
-        noteEl.textContent = window.mode === 'running'
-          ? '周日 24:00 收队（北京时间）'
-          : '周五晚 20:00 开营 · 周日 24:00 收队（北京时间）';
-      }
-
-      update();
-      setInterval(update, 1000);
-    })();
-  </script>
+  <script src="main.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
