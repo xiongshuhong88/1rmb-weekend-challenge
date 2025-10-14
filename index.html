@@ -27,11 +27,15 @@
     html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;}
     a{color:inherit;text-decoration:none}
     .container{width:min(96vw,1280px);margin:0 auto;padding:24px}
+    .site-nav{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .site-brand{display:flex;align-items:center;gap:12px}
+    .logo-mark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#0ef1a7,#4be7dc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#061616;box-shadow:0 12px 28px rgba(64,224,208,0.35)}
+    .site-title{font-weight:700;font-size:20px;letter-spacing:.04em;color:var(--fg)}
     .countdown-banner{background:linear-gradient(135deg,#0d1a2b,#0a2b21);border-bottom:1px solid rgba(94,234,212,0.3);padding:18px 0}
-    .countdown-banner__inner{width:min(92vw,960px);margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:14px}
-    .countdown-banner__title{font-size:26px;font-weight:800;color:#f3f4f6;letter-spacing:.04em}
+    .countdown-banner__inner{width:min(92vw,960px);margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:18px}
+    .countdown-banner__title{font-size:48px;font-weight:800;color:#f3f4f6;letter-spacing:.02em}
     .countdown-banner__title span{color:var(--brand-2)}
-    .countdown-banner__label{font-size:18px;color:rgba(226,232,240,0.8);letter-spacing:.08em}
+    .countdown-banner__label{font-size:22px;color:rgba(226,232,240,0.82);letter-spacing:.06em}
     .countdown-banner__timer{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
     .countdown-segment{display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(8,25,38,0.72);border:1px solid rgba(16,185,129,0.45);border-radius:16px;padding:14px 22px;min-width:120px;box-shadow:0 12px 30px rgba(8,25,38,0.45)}
     .countdown-segment span{font-size:40px;font-weight:800;color:#facc15;text-shadow:0 0 24px rgba(250,204,21,0.35)}
@@ -79,8 +83,9 @@
       h1{font-size:42px}
       .section-media{grid-template-columns:1fr}
       .section-media.media-left .section-media__visual{order:0}
-      .countdown-banner__title{font-size:24px}
-      .countdown-segment span{font-size:34px}
+      .countdown-banner__title{font-size:40px}
+      .countdown-banner__label{font-size:18px}
+      .countdown-segment span{font-size:36px}
     }
     @media (max-width:640px){
       .container{padding:20px}
@@ -90,8 +95,8 @@
       .pill{font-size:12px}
       .countdown-banner{padding:16px 0}
       .countdown-banner__inner{padding:0 16px;gap:12px}
-      .countdown-banner__title{font-size:20px}
-      .countdown-banner__label{font-size:15px}
+      .countdown-banner__title{font-size:30px}
+      .countdown-banner__label{font-size:16px}
       .countdown-banner__timer{gap:12px}
       .countdown-segment{flex:1;min-width:calc(50% - 12px);padding:12px 10px}
       .countdown-segment span{font-size:30px}
@@ -100,10 +105,10 @@
 </head>
 <body>
   <header class="container">
-    <nav style="display:flex;align-items:center;justify-content:space-between;gap:14px">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2))"></div>
-        <strong>一块钱周末挑战</strong>
+    <nav class="site-nav">
+      <div class="site-brand">
+        <div class="logo-mark" aria-hidden="true">¥1</div>
+        <span class="site-title">一块钱周末挑战</span>
       </div>
       <div class="chips">
         <a href="#join" class="chip">加入挑战</a>
