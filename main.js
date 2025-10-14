@@ -14,6 +14,8 @@
   const titleEl = document.getElementById('countdown-title');
   const labelEl = document.getElementById('countdown-label');
   const noteEl = document.getElementById('countdown-note');
+  const navEditionEl = document.getElementById('nav-edition');
+  const statusTextEl = document.getElementById('status-text');
 
   const MS_SECOND = 1000;
   const MS_MINUTE = 60 * MS_SECOND;
@@ -23,12 +25,17 @@
   const EVENT_DURATION_MS = 52 * MS_HOUR;
   const START_WEEKDAY = 5; // Friday
   const START_HOUR_UTC = 12; // 20:00 Asia/Shanghai
+  const BASE_START = Date.UTC(2025, 9, 17, START_HOUR_UTC, 0, 0, 0);
 
   const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
     timeZone: 'Asia/Shanghai',
     year: 'numeric',
     month: 'numeric',
     day: 'numeric'
+  });
+  const weekdayFormatter = new Intl.DateTimeFormat('zh-CN', {
+    timeZone: 'Asia/Shanghai',
+    weekday: 'short'
   });
 
   function dateParts(date){
@@ -107,6 +114,11 @@
     const displayStart = window.start;
     const displayEnd = new Date(window.start.getTime() + 2 * MS_DAY);
     rangeEl.textContent = formatRange(displayStart, displayEnd);
+    const edition = Math.max(1, Math.floor((window.start.getTime() - BASE_START) / WEEK_MS) + 1);
+    if (navEditionEl){
+      navEditionEl.textContent = ` · 第${edition}期`;
+    }
+
     if (titleEl){
       titleEl.textContent = window.mode === 'running' ? '当前挑战' : '下一次挑战';
     }
@@ -119,6 +131,17 @@
       noteEl.textContent = window.mode === 'running'
         ? '周日 24:00 收队（北京时间）'
         : '周五晚 20:00 开营 · 周日 24:00 收队（北京时间）';
+    }
+    if (statusTextEl){
+      const startParts = dateParts(window.start);
+      const startWeekday = weekdayFormatter.format(window.start);
+      if (window.mode === 'running'){
+        const endParts = dateParts(window.end);
+        const endWeekday = weekdayFormatter.format(window.end);
+        statusTextEl.textContent = `📆 第${edition}期挑战进行中｜${endParts.month}月${endParts.day}日（${endWeekday}）24:00 收队，欢迎加入围观或复盘`;
+      } else {
+        statusTextEl.textContent = `📆 当前为第${edition}期活动（尚未开始）｜预计 ${startParts.month}月${startParts.day}日（${startWeekday}）20:00 开营，敬请期待！`;
+      }
     }
   }
 

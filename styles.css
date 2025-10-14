@@ -61,6 +61,34 @@ img{display:block;max-width:100%}
   letter-spacing:.04em;
   color:var(--fg);
 }
+.edition-label{margin-left:4px;color:var(--brand-2);}
+
+.status-banner{
+  background:#111b24;
+  border-bottom:1px solid rgba(94,234,212,0.3);
+}
+.status-banner__inner{
+  width:min(96vw,1280px);
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  color:#f1f5f9;
+  font-size:15px;
+}
+.status-banner__links{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+}
+.status-banner__links a{
+  color:var(--brand-2);
+  font-weight:600;
+}
 
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
@@ -151,6 +179,13 @@ img{display:block;max-width:100%}
 }
 
 .hero-copy{max-width:620px;text-align:left}
+.hero-note{
+  font-size:13px;
+  margin:14px 0 0;
+  color:var(--muted);
+}
+.hero-note a{color:var(--brand-2);font-weight:600}
+
 .badge{
   display:inline-flex;
   align-items:center;
@@ -220,6 +255,15 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
 
 .section{padding:32px 0}
 .kicker{font-size:13px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.section-header{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 28px;
+}
+.section-header h2{margin-bottom:6px;font-size:30px}
+
+.reasons-section .card h3{margin-top:0;font-size:22px;color:var(--fg)}
+.reasons-section .card p{margin:0.5em 0}
 
 .timeline{display:grid;gap:18px}
 .step{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start}
@@ -271,6 +315,16 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
 }
 .section-media.media-left{
   grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr);
+}
+
+@media (max-width:1024px){
+  .section-media{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .section-media__visual{max-width:100%}
+  .section-media.media-left{grid-template-columns:1fr}
+  #community .section-media__visual,#community .section-media .card{max-width:100%;margin:0}
 }
 
 .section-media__visual{
@@ -350,25 +404,20 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
   h2{font-size:24px}
   .card{padding:20px}
   .pill{font-size:12px}
+  .status-banner__inner{flex-direction:column;align-items:flex-start;gap:6px}
   .countdown-banner{padding:16px 0}
   .countdown-banner__inner{padding:0 16px;gap:12px}
   .countdown-banner__title{font-size:30px}
   .countdown-banner__label{font-size:16px}
   .countdown-banner__timer{gap:12px}
   .countdown-segment{flex:1;min-width:calc(50% - 12px);padding:12px 10px}
-.countdown-segment span{font-size:30px}
+  .countdown-segment span{font-size:30px}
   .hero-side{align-items:stretch}
   .hero-copy .cta-row,
   .cta-row{justify-content:flex-start}
-
-  #community .section-media{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-  #community .section-media__visual,
-  #community .section-media .card{
-    max-width:100%;
-    margin:0;
-  }
 }
 .section-media.media-left .card{max-width:720px;margin:0 auto}
+
+.gradient-text{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+#community .section-media{grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:32px;align-items:center}
+#community .section-media__visual,#community .section-media .card{max-width:560px}
