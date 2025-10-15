@@ -435,5 +435,7 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
 .section-media.media-left .card{max-width:720px;margin:0 auto}
 
 .gradient-text{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-#community .section-media{grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:32px;align-items:center}
-#community .section-media__visual,#community .section-media .card{max-width:560px}
+@media (min-width:1025px){
+  #community .section-media{grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:32px;align-items:center}
+  #community .section-media__visual,#community .section-media .card{max-width:560px}
+}
