@@ -382,7 +382,11 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
   justify-content:center;
   padding:16px;
 }
-.qr img{width:215px;height:auto}
+.qr img{width:100%;height:auto;max-width:320px}
+.hero-side .qr{justify-content:flex-start}
+@media (max-width:640px){
+  .hero-side .qr{justify-content:center}
+}
 
 .footer{
   border-top:1px solid var(--border);
