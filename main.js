@@ -4,18 +4,26 @@
 })();
 
 (function () {
-  const rangeEl = document.getElementById('challenge-range');
-  const daysEl = document.getElementById('countdown-days');
-  const hoursEl = document.getElementById('countdown-hours');
-  const minutesEl = document.getElementById('countdown-minutes');
-  const secondsEl = document.getElementById('countdown-seconds');
-  if (!rangeEl || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+  const countdownBlocks = Array.from(document.querySelectorAll('[data-countdown]')).map(banner => {
+    const elements = {
+      title: banner.querySelector('[data-title]'),
+      label: banner.querySelector('[data-label]'),
+      note: banner.querySelector('[data-note]'),
+      range: banner.querySelector('[data-range]'),
+      days: banner.querySelector('[data-days]'),
+      hours: banner.querySelector('[data-hours]'),
+      minutes: banner.querySelector('[data-minutes]'),
+      seconds: banner.querySelector('[data-seconds]')
+    };
+    if (!elements.days || !elements.hours || !elements.minutes || !elements.seconds){
+      return null;
+    }
+    return { elements };
+  }).filter(Boolean);
 
-  const titleEl = document.getElementById('countdown-title');
-  const labelEl = document.getElementById('countdown-label');
-  const noteEl = document.getElementById('countdown-note');
   const navEditionEl = document.getElementById('nav-edition');
   const statusTextEl = document.getElementById('status-text');
+  if (!countdownBlocks.length && !navEditionEl && !statusTextEl) return;
 
   const MS_SECOND = 1000;
   const MS_MINUTE = 60 * MS_SECOND;
@@ -106,32 +114,41 @@
     const minutes = Math.max(0, Math.floor((diff % MS_HOUR) / MS_MINUTE));
     const seconds = Math.max(0, Math.floor((diff % MS_MINUTE) / MS_SECOND));
 
-    daysEl.textContent = pad(days);
-    hoursEl.textContent = pad(hours);
-    minutesEl.textContent = pad(minutes);
-    secondsEl.textContent = pad(seconds);
+    countdownBlocks.forEach(({ elements }) => {
+      if (elements.days) elements.days.textContent = pad(days);
+      if (elements.hours) elements.hours.textContent = pad(hours);
+      if (elements.minutes) elements.minutes.textContent = pad(minutes);
+      if (elements.seconds) elements.seconds.textContent = pad(seconds);
+    });
 
     const displayStart = window.start;
     const displayEnd = new Date(window.start.getTime() + 2 * MS_DAY);
-    rangeEl.textContent = formatRange(displayStart, displayEnd);
+    const formattedRange = formatRange(displayStart, displayEnd);
+    countdownBlocks.forEach(({ elements }) => {
+      if (elements.range) elements.range.textContent = formattedRange;
+    });
     const edition = Math.max(1, Math.floor((window.start.getTime() - BASE_START) / WEEK_MS) + 1);
     if (navEditionEl){
       navEditionEl.textContent = ` · 第${edition}期`;
     }
 
-    if (titleEl){
-      titleEl.textContent = window.mode === 'running' ? '当前挑战' : '下一次挑战';
-    }
-    if (labelEl){
-      labelEl.textContent = window.mode === 'running'
-        ? '挑战进行中：距离收队还有'
-        : '距离下一次挑战还有';
-    }
-    if (noteEl){
-      noteEl.textContent = window.mode === 'running'
-        ? '周日 24:00 收队（北京时间）'
-        : '周五晚 20:00 开营 · 周日 24:00 收队（北京时间）';
-    }
+    const isRunning = window.mode === 'running';
+    countdownBlocks.forEach(({ elements }) => {
+      if (elements.title){
+        elements.title.textContent = isRunning ? '当前挑战' : '下一次挑战';
+      }
+      if (elements.label){
+        elements.label.textContent = isRunning
+          ? '挑战进行中：距离收队还有'
+          : '距离下一次挑战还有';
+      }
+      if (elements.note){
+        elements.note.textContent = isRunning
+          ? '周日 24:00 收队（北京时间）'
+          : '周五晚 20:00 开营 · 周日 24:00 收队（北京时间）';
+      }
+    });
+
     if (statusTextEl){
       const startParts = dateParts(window.start);
       const startWeekday = weekdayFormatter.format(window.start);
