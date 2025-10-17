@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-edition-template="第{{n}}期｜一块钱周末挑战 —— 活动流程说明">一块钱周末挑战｜活动流程说明</title>
+<title data-edition-template="第一期｜一块钱周末挑战 —— 活动流程说明">一块钱周末挑战｜活动流程说明</title>
+<link href="styles.css" rel="stylesheet"/>
 <style>
 :root{
-  --w: 800px;
   --bg: #0b0f1a;
   --fg: #ecf1ff;
   --ring: #28314f;
@@ -23,7 +23,8 @@ html,body{height:100%}
 body{
   margin:0;
   display:flex;
-  justify-content:center;
+  flex-direction:column;
+  min-height:100vh;
   background:
     radial-gradient(1000px 800px at 10% -10%, #1a245a44, transparent 60%),
     radial-gradient(1400px 900px at 120% 0%, #0bc5ea22, transparent 60%),
@@ -33,7 +34,16 @@ body{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-.container{ width:var(--w); padding:32px 12px 96px; }
+.flow-main{
+  flex:1;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:48px;
+  align-items:center;
+  padding:40px 0 100px;
+}
+.flow-shell{width:100%;}
 .toolbar{ display:flex;align-items:center;justify-content:space-between;margin-bottom:16px; gap:12px;}
 .brand{font-weight:800;letter-spacing:.3px;font-size:22px}
 .tools{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
@@ -121,7 +131,12 @@ body{
 .notes li{line-height:2.05;color:#e5e7eb;font-weight:600;font-size:18px;margin:6px 0}
 .notes p{margin:10px 0; line-height:2.05; color:#e5e7eb; font-weight:600;font-size:18px}
 .contact p{margin:10px 0;line-height:2.05;color:#e5e7eb;font-weight:600;font-size:18px}
-#capture{background: transparent}
+#capture{
+  background: transparent;
+  width:100%;
+  max-width:800px;
+  margin:0 auto;
+}
 hr.sep{ border: none; height: 1px; background: linear-gradient(90deg,#1f2943,#384766 40%, transparent); margin: 12px 0 4px; }
 kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radius:6px; font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; color:#9cc3ff; }
 
@@ -131,7 +146,14 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
   font-weight:700;
 }
 
+@media (max-width: 960px){
+  .flow-main{
+    padding:32px 0 88px;
+    gap:40px;
+  }
+}
 @media (max-width: 720px) {
+  .flow-main{padding:28px 0 72px;gap:32px}
   .block{
     padding:24px;
   }
@@ -148,137 +170,225 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="toolbar">
-    <div class="brand">Weekend · 一块钱周末挑战</div>
-    <div class="tools">
-      <a class="btn secondary" href="index.html">返回官网</a>
-      <button id="saveBtn" class="btn">一键保存长图（PNG）</button>
+<header class="container">
+  <nav class="site-nav">
+    <div class="site-brand">
+      <div aria-hidden="true" class="logo-mark">¥1</div>
+      <span class="site-title">一块钱周末挑战<span class="edition-label" id="nav-edition" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
+    </div>
+    <div class="chips">
+      <a class="chip" href="index.html">返回首页</a>
+      <a class="chip" href="announcement.html">社群公告</a>
+      <a class="chip" href="weekend_challenge_flow.html">活动流程</a>
+      <a class="chip" href="index.html#join">加入挑战</a>
+      <a class="chip" href="index.html#rules">规则</a>
+      <a class="chip" href="index.html#community">社区地点</a>
+      <a class="chip" href="index.html#faq">FAQ</a>
+    </div>
+  </nav>
+</header>
+<div class="status-banner" role="status">
+  <div class="status-banner__inner">
+    <span id="status-text">📆 当前为第 ? 期活动（尚未开始）｜预计本周五 20:00 开营，敬请期待！</span>
+    <div class="status-banner__links">
+      <a href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a>
+      <span>·</span>
+      <a href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
     </div>
   </div>
-  <!-- <div class="hint">提示：页面是纯 HTML/CSS，可直接复制文字；导出按钮只截取中间 800px 区域。</div> -->
-
-  <div id="capture" class="card" style="width:800px;">
-    <div class="header">
-      <div class="header-brand">Weekend · 一块钱周末挑战</div>
-      <h1 class="h-title"><span data-edition-template="第{{n}}期">第 ? 期</span>｜一块钱周末挑战 —— 活动流程说明</h1>
-      <p class="h-sub">两天实战：从构思到上线与推广 · 周五 20:00 腾讯会议集合</p>
+</div>
+<div aria-live="polite" class="countdown-banner" data-countdown role="region">
+  <div class="countdown-banner__inner">
+    <div class="countdown-banner__title"><span data-title="" id="countdown-title">下一次挑战</span>：<span data-range="" id="challenge-range">--</span></div>
+    <div class="countdown-banner__label" data-label="" id="countdown-label">距离下一次挑战还有</div>
+    <div class="countdown-banner__timer">
+      <div class="countdown-segment">
+        <span data-days="" id="countdown-days">--</span>
+        <small>天</small>
+      </div>
+      <div class="countdown-segment">
+        <span data-hours="" id="countdown-hours">--</span>
+        <small>小时</small>
+      </div>
+      <div class="countdown-segment">
+        <span data-minutes="" id="countdown-minutes">--</span>
+        <small>分钟</small>
+      </div>
+      <div class="countdown-segment">
+        <span data-seconds="" id="countdown-seconds">--</span>
+        <small>秒</small>
+      </div>
     </div>
-    <div class="section">
-      <div class="flow">
-        <div class="block fri-a">
-          <div class="top">
-            <span class="time-chip">周五 20:00 · 开幕</span>
-            <h3 class="block-title">腾讯会议：开场 &amp; 方向讨论</h3>
-          </div>
-          <div class="block-body">
-            · 主持人介绍两天流程 / 规则 / 目标<br>
-            · 我自我介绍 &amp; 发起初衷、社区愿景<br>
-            · 参与者自我介绍 + 想法与疑问抛出<br>
-            · 确认个人方向 / 组队意向
-          </div>
-        </div>
+    <div class="countdown-banner__note" data-note="" id="countdown-note">周五晚 20:00 开营 · 周日 24:00 收队（北京时间）</div>
+  </div>
+</div>
 
-        <div class="block fri-b compact">
-          <div class="top">
-            <span class="time-chip">周五 21:00 起 · 自由互动</span>
-            <h3 class="block-title">群内交流 / 方向确认 / 继续打磨</h3>
-          </div>
-          <div class="block-body">
-            · 组队沟通、想法完善
-            <br>
-            · 有经验同学主动答疑引导
-          </div>
-        </div>
+<main class="flow-main">
+  <div class="container flow-shell">
+    <div class="toolbar"></div>
+    <!-- <div class="hint">提示：页面是纯 HTML/CSS，可直接复制文字；导出按钮只截取中间 800px 区域。</div> -->
 
-        <div class="block sat-a">
-          <div class="top">
-            <span class="time-chip">周六 · 全天执行</span>
-            <h3 class="block-title">项目推进：设计 / 开发 / 部署 / 推广 / 测试</h3>
+    <div id="capture" class="card">
+      <div class="header">
+        <h1 class="h-title"><span data-edition-template="第{{n}}期">第 ? 期</span>｜一块钱周末挑战 —— 活动流程说明</h1>
+        <p class="h-sub">两天实战：从构思到上线与推广 · 周五 20:00 腾讯会议集合</p>
+      </div>
+      <div class="section">
+        <div class="flow">
+          <div class="block fri-a">
+            <div class="top">
+              <span class="time-chip">周五 20:00 · 开幕</span>
+              <h3 class="block-title">腾讯会议：开场 &amp; 方向讨论</h3>
+            </div>
+            <div class="block-body">
+              · 主持人介绍两天流程 / 规则 / 目标<br>
+              · 我自我介绍 &amp; 发起初衷、社区愿景<br>
+              · 参与者自我介绍 + 想法与疑问抛出<br>
+              · 确认个人方向 / 组队意向
+            </div>
           </div>
-          <div class="block-body">
-            · 设置中期 Check-in（中午 / 下午 / 晚上）<br>
-            · 群里互帮互助，遇到问题及时抛出<br>
-            · 记录问题与待办，保持小步快跑
-          </div>
-        </div>
 
-        <div class="block sat-b compact">
-          <div class="top">
-            <span class="time-chip">周六 15:00–21:00 · 可能临时外出</span>
-            <h3 class="block-title">值班答疑机制</h3>
+          <div class="block fri-b compact">
+            <div class="top">
+              <span class="time-chip">周五 21:00 起 · 自由互动</span>
+              <h3 class="block-title">群内交流 / 方向确认 / 继续打磨</h3>
+            </div>
+            <div class="block-body">
+              · 组队沟通、想法完善
+              <br>
+              · 有经验同学主动答疑引导
+            </div>
           </div>
-          <div class="block-body">
-            · 我可能阶段性离线，会提前安排助教值班答疑；若行程调整，会在群内同步<br>
-            · 常见问题清单 / 教程文档提前发放，可自助查询
-          </div>
-        </div>
 
-        <div class="block sun-a">
-          <div class="top">
-            <span class="time-chip">周日 · 白天推进</span>
-            <h3 class="block-title">继续调试 / 部署 / 上线 / 推广</h3>
+          <div class="block sat-a">
+            <div class="top">
+              <span class="time-chip">周六 · 全天执行</span>
+              <h3 class="block-title">项目推进：设计 / 开发 / 部署 / 推广 / 测试</h3>
+            </div>
+            <div class="block-body">
+              · 设置中期 Check-in（中午 / 下午 / 晚上）<br>
+              · 群里互帮互助，遇到问题及时抛出<br>
+              · 记录问题与待办，保持小步快跑
+            </div>
           </div>
-          <div class="block-body">
-            · 按节点对齐进度，补齐最小可用版本（MVP）<br>
-            · 产出演示素材（截图 / 录屏 / 文案）
-          </div>
-        </div>
 
-        <div class="block sun-b compact">
-          <div class="top">
-            <span class="time-chip">周日 19:00 · 收集</span>
-            <h3 class="block-title">统一提交成果（模板）</h3>
+          <div class="block sat-b compact">
+            <div class="top">
+              <span class="time-chip">群主临时外出</span>
+              <h3 class="block-title">值班答疑机制</h3>
+            </div>
+            <div class="block-body">
+              · 我可能阶段性离线，会提前安排助教值班答疑；若行程调整，会在群内同步<br>
+              · 常见问题清单 / 教程文档提前发放，可自助查询
+            </div>
           </div>
-          <div class="block-body">
-            · 项目名 / 简介 / 功能要点 / Demo 链接或截图<br>
-            · 遇到的问题 / 下一步计划 / 希望的支持
-          </div>
-        </div>
 
-        <div class="block sun-b">
-          <div class="top">
-            <span class="time-chip">周日 20:00 · 总结 &amp; 表彰</span>
-            <h3 class="block-title">腾讯会议：展示 / 分享 / Q&amp;A</h3>
+          <div class="block sun-a">
+            <div class="top">
+              <span class="time-chip">周日 · 白天推进</span>
+              <h3 class="block-title">继续调试 / 部署 / 上线 / 推广</h3>
+            </div>
+            <div class="block-body">
+              · 按节点对齐进度，补齐最小可用版本（MVP）<br>
+              · 产出演示素材（截图 / 录屏 / 文案）
+            </div>
           </div>
-          <div class="block-body">
-            · 优秀项目展示与经验分享，开放问答<br>
-            · 主持人总结与表彰，公布下一期预热信息
-          </div>
-        </div>
 
-        <div class="notes">
-          <h3>会后 / 后续</h3>
-          <div class="notes-body">
-            <ul>
-              <li>活动结束不是终点，而是起点。项目既然开始了，就会有反馈，大家要持续去迭代优化，继续保持交流沟通；有任何问题都可以在群里提问。</li>
-              <li>没有完成的就继续花时间完成，一块钱周末挑战活动是催化你的行动，不是玩玩而已哟。</li>
-              <li>征集大家对本期活动的反馈 / 建议</li>
-              <li>为下一期活动做预热 / 拉新 / 号召继续参与</li>
-            </ul>
+          <div class="block sun-b compact">
+            <div class="top">
+              <span class="time-chip">周日 19:00 · 收集</span>
+              <h3 class="block-title">统一提交成果（模板）</h3>
+            </div>
+            <div class="block-body">
+              · 项目名 / 简介 / 功能要点 / Demo 链接或截图<br>
+              · 遇到的问题 / 下一步计划 / 希望的支持
+            </div>
           </div>
-        </div>
 
-        <div class="contact">
-          <h3>联系我们 · 参与方式</h3>
-          <p>· 官网：<span data-gradient-text>weekend.sightx.top</span></p>
-          <p>· 公众号：大熊思考</p>
-          <p>· 开始时间：<span style="color:#c7d2fe">每期周五 20:00</span>（腾讯会议）</p>
-          <p>· 提交入口：群内统一表单 / 线程</p>
-          <p>· 社区理念：<span style="color:#c7d2fe">先跑通，再完善；小步快跑，快速闭环。</span></p>
-          <p>· 建议设备：电脑优先；提前测试腾讯会议的使用，避免出现耽误。</p>
-          <p>· 常见问题：部署 / 域名 / 支付 / 推广等会提供教程与答疑值守。</p>
+          <div class="block sun-b">
+            <div class="top">
+              <span class="time-chip">周日 20:00 · 总结 &amp; 表彰</span>
+              <h3 class="block-title">腾讯会议：展示 / 分享 / Q&amp;A</h3>
+            </div>
+            <div class="block-body">
+              · 优秀项目展示与经验分享，开放问答<br>
+              · 主持人总结与表彰，公布下一期预热信息
+            </div>
+          </div>
+
+          <div class="notes">
+            <h3>会后 / 后续</h3>
+            <div class="notes-body">
+              <ul>
+                <li>活动结束不是终点，而是起点。项目既然开始了，就会有反馈，大家要持续去迭代优化，继续保持交流沟通；有任何问题都可以在群里提问。</li>
+                <li>没有完成的就继续花时间完成，一块钱周末挑战活动是催化你的行动，不是玩玩而已哟。</li>
+                <li>征集大家对本期活动的反馈 / 建议</li>
+                <li>为下一期活动做预热 / 拉新 / 号召继续参与</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contact">
+            <h3>联系我们 · 参与方式</h3>
+            <p>· 官网：<span data-gradient-text>weekend.sightx.top</span></p>
+            <p>· 公众号：大熊思考</p>
+            <p>· 开始时间：<span style="color:#c7d2fe">每期周五 20:00</span>（腾讯会议）</p>
+            <p>· 提交入口：群内统一表单 / 线程</p>
+            <p>· 社区理念：<span style="color:#c7d2fe">先跑通，再完善；小步快跑，快速闭环。</span></p>
+            <p>· 建议设备：电脑优先；提前测试腾讯会议的使用，避免出现耽误。</p>
+            <p>· 常见问题：部署 / 域名 / 支付 / 推广等会提供教程与答疑值守。</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <section class="section flow-join" id="join">
+    <div class="container">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2 style="margin-top:0">现在加入</h2>
+          <p>报名费仅 ¥1，用于社群维护与资料整理。扫码报名加入 <strong>「一块钱周末挑战」</strong> 社群，获取开营通知与入群方式，或直接<a href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名链接</a>。</p>
+          <p class="muted" style="margin-bottom:12px">加入后可获得：① 免费建站教学 ② AI 剪辑课程 ③ 周末实战项目直播</p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip">不要求背景</span>
+            <span class="chip">可以用 AI</span>
+            <span class="chip">可以卖模板/工具/课程/服务</span>
+            <a class="chip" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">立即报名</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="qr">
+            <img alt="扫码报名加入一块钱周末挑战社群" decoding="async" loading="lazy" src="扫码报名.jpg"/>
+          </div>
+          <p class="muted" style="margin:8px 0 0">* 扫码报名，查看活动说明并加入微信群获取最新安排，或<a href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名表单</a>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="container footer">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+    <div>
+      © <span id="y"></span> 一块钱周末挑战 · Made with ❤️ by 大熊 |
+      <a href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a> ·
+      <a href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
+    </div>
+    <div class="chips">
+      <a class="chip" href="index.html">返回首页</a>
+      <a class="chip" href="#join">加入挑战</a>
+      <a class="chip" href="announcement.html">社群公告</a>
+    </div>
+  </div>
+</footer>
 
 <script defer src="main.js"></script>
 <script>
 async function exportPNG() {
   const el = document.getElementById('capture');
-  const w = 800;
+  const rect = el.getBoundingClientRect();
+  const w = Math.ceil(rect.width);
   const h = Math.ceil(el.scrollHeight);
   // 导出时做一些样式兜底，避免渐变文字/阴影导致的缺字与额外间距
   const exportReset = `
@@ -349,7 +459,6 @@ async function exportPNG() {
   };
   img.src = url;
 }
-document.getElementById('saveBtn').addEventListener('click', exportPNG);
 </script>
 </body>
 </html>
