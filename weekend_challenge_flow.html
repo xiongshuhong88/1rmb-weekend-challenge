@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-edition-template="第{{n}}期｜一块钱周末挑战 —— 活动流程说明">一块钱周末挑战｜活动流程说明</title>
+<style>
+:root{
+  --w: 800px;
+  --bg: #0b0f1a;
+  --fg: #ecf1ff;
+  --ring: #28314f;
+  --fri-a: linear-gradient(135deg,#7c3aed,#2563eb);
+  --fri-b: linear-gradient(135deg,#6366f1,#22d3ee);
+  --sat-a: linear-gradient(135deg,#06b6d4,#10b981);
+  --sat-b: linear-gradient(135deg,#22c55e,#84cc16);
+  --sun-a: linear-gradient(135deg,#f59e0b,#ef4444);
+  --sun-b: linear-gradient(135deg,#ef4444,#ec4899);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  display:flex;
+  justify-content:center;
+  background:
+    radial-gradient(1000px 800px at 10% -10%, #1a245a44, transparent 60%),
+    radial-gradient(1400px 900px at 120% 0%, #0bc5ea22, transparent 60%),
+    var(--bg);
+  color:var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC","Hiragino Sans GB","Microsoft YaHei", Inter, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.container{ width:var(--w); padding:32px 12px 96px; }
+.toolbar{ display:flex;align-items:center;justify-content:space-between;margin-bottom:16px; gap:12px;}
+.brand{font-weight:800;letter-spacing:.3px;font-size:22px}
+.tools{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+.btn{
+  border:1px solid var(--ring);
+  background: linear-gradient(135deg,#3b82f6,#22d3ee);
+  color:#fff;
+  padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer;
+  box-shadow:0 8px 24px rgba(59,130,246,.25);
+}
+.btn.secondary{ background:#0e1630; color:#c7d2fe; }
+.btn:active{transform:translateY(1px)}
+.hint{ font-size:12px; color:#a8b3cf; opacity:.9 }
+.card{ border:1px solid var(--ring); border-radius:16px; overflow:hidden; box-shadow: 0 18px 50px rgba(0,0,0,.35); }
+.header{ background:#0e1630; padding:30px 28px 28px; border-bottom:1px solid var(--ring); }
+.header-brand{
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:.4px;
+  color:#93c5fd;
+  margin-bottom:10px;
+}
+.h-title{
+  font-weight:900;font-size:34px;
+  margin:0 0 10px 0;
+  color:#ffffff;
+}
+.h-sub{ margin:0;color:#dbe4ff;font-weight:600;font-size:18px; }
+.export-only{ display:none }
+.section{ padding:16px; display:grid; gap:16px; }
+.flow{ display:grid; gap:18px; }
+.block{
+  position:relative;
+  border-radius:14px;
+  padding:28px 220px 28px 30px;
+  color:#fff;
+  min-height:170px;
+}
+.block.compact{ min-height:150px; }
+.block .top{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+.time-chip{
+  display:inline-flex;
+  align-items:center;
+  background: rgba(255,255,255,.96);
+  color:#0b1022;
+  font-weight:900;
+  font-size:18px;
+  padding:12px 20px;
+  border-radius:20px;
+  box-shadow:0 12px 28px rgba(15,23,42,.32);
+  letter-spacing:.2px;
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+}
+.block-title{
+  font-weight:900;
+  font-size:24px;
+  margin:0;
+  flex:1;
+  line-height:1.3;
+  order:0;
+}
+.block-body{
+  margin-top:12px;
+  font-weight:600;
+  font-size:18px;
+  line-height:1.95;
+  color:#f8fafc;
+  word-break:break-word;
+}
+.fri-a{background:var(--fri-a)} .fri-b{background:var(--fri-b)}
+.sat-a{background:var(--sat-a)} .sat-b{background:var(--sat-b)}
+.sun-a{background:var(--sun-a)} .sun-b{background:var(--sun-b)}
+.notes, .contact{background:#0e1630;border:1px solid var(--ring);border-radius:14px;padding:24px}
+.notes h3, .contact h3{margin:0 0 10px 0;color:#e5e7eb;font-weight:900;font-size:22px}
+.notes ul{margin:10px 0 0 0;padding:0;list-style:none}
+.notes li{line-height:2.05;color:#e5e7eb;font-weight:600;font-size:18px;margin:6px 0}
+.notes p{margin:10px 0; line-height:2.05; color:#e5e7eb; font-weight:600;font-size:18px}
+.contact p{margin:10px 0;line-height:2.05;color:#e5e7eb;font-weight:600;font-size:18px}
+#capture{background: transparent}
+hr.sep{ border: none; height: 1px; background: linear-gradient(90deg,#1f2943,#384766 40%, transparent); margin: 12px 0 4px; }
+kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radius:6px; font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; color:#9cc3ff; }
+
+[data-gradient-text]{
+  display:inline-block;
+  color:#ffffff;
+  font-weight:700;
+}
+
+@media (max-width: 720px) {
+  .block{
+    padding:24px;
+  }
+  .block .top{
+    gap:10px;
+  }
+  .time-chip{
+    position:static;
+    transform:none;
+    margin-left:0;
+    margin-top:12px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="toolbar">
+    <div class="brand">Weekend · 一块钱周末挑战</div>
+    <div class="tools">
+      <a class="btn secondary" href="index.html">返回官网</a>
+      <button id="saveBtn" class="btn">一键保存长图（PNG）</button>
+    </div>
+  </div>
+  <!-- <div class="hint">提示：页面是纯 HTML/CSS，可直接复制文字；导出按钮只截取中间 800px 区域。</div> -->
+
+  <div id="capture" class="card" style="width:800px;">
+    <div class="header">
+      <div class="header-brand">Weekend · 一块钱周末挑战</div>
+      <h1 class="h-title"><span data-edition-template="第{{n}}期">第 ? 期</span>｜一块钱周末挑战 —— 活动流程说明</h1>
+      <p class="h-sub">两天实战：从构思到上线与推广 · 周五 20:00 腾讯会议集合</p>
+    </div>
+    <div class="section">
+      <div class="flow">
+        <div class="block fri-a">
+          <div class="top">
+            <span class="time-chip">周五 20:00 · 开幕</span>
+            <h3 class="block-title">腾讯会议：开场 &amp; 方向讨论</h3>
+          </div>
+          <div class="block-body">
+            · 主持人介绍两天流程 / 规则 / 目标<br>
+            · 我自我介绍 &amp; 发起初衷、社区愿景<br>
+            · 参与者自我介绍 + 想法与疑问抛出<br>
+            · 确认个人方向 / 组队意向
+          </div>
+        </div>
+
+        <div class="block fri-b compact">
+          <div class="top">
+            <span class="time-chip">周五 21:00 起 · 自由互动</span>
+            <h3 class="block-title">群内交流 / 方向确认 / 继续打磨</h3>
+          </div>
+          <div class="block-body">
+            · 组队沟通、想法完善
+            <br>
+            · 有经验同学主动答疑引导
+          </div>
+        </div>
+
+        <div class="block sat-a">
+          <div class="top">
+            <span class="time-chip">周六 · 全天执行</span>
+            <h3 class="block-title">项目推进：设计 / 开发 / 部署 / 推广 / 测试</h3>
+          </div>
+          <div class="block-body">
+            · 设置中期 Check-in（中午 / 下午 / 晚上）<br>
+            · 群里互帮互助，遇到问题及时抛出<br>
+            · 记录问题与待办，保持小步快跑
+          </div>
+        </div>
+
+        <div class="block sat-b compact">
+          <div class="top">
+            <span class="time-chip">周六 15:00–21:00 · 可能临时外出</span>
+            <h3 class="block-title">值班答疑机制</h3>
+          </div>
+          <div class="block-body">
+            · 我可能阶段性离线，会提前安排助教值班答疑；若行程调整，会在群内同步<br>
+            · 常见问题清单 / 教程文档提前发放，可自助查询
+          </div>
+        </div>
+
+        <div class="block sun-a">
+          <div class="top">
+            <span class="time-chip">周日 · 白天推进</span>
+            <h3 class="block-title">继续调试 / 部署 / 上线 / 推广</h3>
+          </div>
+          <div class="block-body">
+            · 按节点对齐进度，补齐最小可用版本（MVP）<br>
+            · 产出演示素材（截图 / 录屏 / 文案）
+          </div>
+        </div>
+
+        <div class="block sun-b compact">
+          <div class="top">
+            <span class="time-chip">周日 19:00 · 收集</span>
+            <h3 class="block-title">统一提交成果（模板）</h3>
+          </div>
+          <div class="block-body">
+            · 项目名 / 简介 / 功能要点 / Demo 链接或截图<br>
+            · 遇到的问题 / 下一步计划 / 希望的支持
+          </div>
+        </div>
+
+        <div class="block sun-b">
+          <div class="top">
+            <span class="time-chip">周日 20:00 · 总结 &amp; 表彰</span>
+            <h3 class="block-title">腾讯会议：展示 / 分享 / Q&amp;A</h3>
+          </div>
+          <div class="block-body">
+            · 优秀项目展示与经验分享，开放问答<br>
+            · 主持人总结与表彰，公布下一期预热信息
+          </div>
+        </div>
+
+        <div class="notes">
+          <h3>会后 / 后续</h3>
+          <div class="notes-body">
+            <ul>
+              <li>活动结束不是终点，而是起点。项目既然开始了，就会有反馈，大家要持续去迭代优化，继续保持交流沟通；有任何问题都可以在群里提问。</li>
+              <li>没有完成的就继续花时间完成，一块钱周末挑战活动是催化你的行动，不是玩玩而已哟。</li>
+              <li>征集大家对本期活动的反馈 / 建议</li>
+              <li>为下一期活动做预热 / 拉新 / 号召继续参与</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact">
+          <h3>联系我们 · 参与方式</h3>
+          <p>· 官网：<span data-gradient-text>weekend.sightx.top</span></p>
+          <p>· 公众号：大熊思考</p>
+          <p>· 开始时间：<span style="color:#c7d2fe">每期周五 20:00</span>（腾讯会议）</p>
+          <p>· 提交入口：群内统一表单 / 线程</p>
+          <p>· 社区理念：<span style="color:#c7d2fe">先跑通，再完善；小步快跑，快速闭环。</span></p>
+          <p>· 建议设备：电脑优先；提前测试腾讯会议的使用，避免出现耽误。</p>
+          <p>· 常见问题：部署 / 域名 / 支付 / 推广等会提供教程与答疑值守。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer src="main.js"></script>
+<script>
+async function exportPNG() {
+  const el = document.getElementById('capture');
+  const w = 800;
+  const h = Math.ceil(el.scrollHeight);
+  // 导出时做一些样式兜底，避免渐变文字/阴影导致的缺字与额外间距
+  const exportReset = `
+    body{margin:0}
+    /* 禁止导出时的外部阴影造成多余空白 */
+    .card{box-shadow:none}
+    /* 渐变文字在某些实现下可能消失，导出时用纯色降级 */
+    .h-title{background:none !important; color:#ffffff !important; -webkit-text-fill-color:#ffffff !important}
+    [data-gradient-text]{background:none !important; -webkit-background-clip:initial !important; background-clip:initial !important; color:#ffffff !important; -webkit-text-fill-color:#ffffff !important}
+    /* 导出时显示品牌标题 */
+    .export-only{ display:block !important }
+  `;
+  const html = '<div xmlns="http://www.w3.org/1999/xhtml"><meta charset="utf-8"><style>' + exportReset + '</style>' + el.outerHTML + '</div>';
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '">'+
+              '<foreignObject x="0" y="0" width="' + w + '" height="' + h + '">' + html + '</foreignObject></svg>';
+  const svgBlob = new Blob([svg], {type:"image/svg+xml;charset=utf-8"});
+  const url = URL.createObjectURL(svgBlob);
+  // Ensure fonts are loaded before rendering to canvas
+  try { await (document.fonts && document.fonts.ready); } catch (e) {}
+  const img = new Image();
+  img.onload = function() {
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    canvas.width = w * scale;
+    canvas.height = h * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+    ctx.fillStyle = getComputedStyle(document.body).backgroundColor || "#0b0f1a";
+    ctx.fillRect(0,0,w,h);
+    ctx.drawImage(img, 0, 0, w, h);
+    URL.revokeObjectURL(url);
+    canvas.toBlob(function(blob){
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'weekend_challenge_flow.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  };
+  img.onerror = function(){
+    // Fallback: try html2canvas when foreignObject is blocked by the browser
+    const loadScript = (src) => new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src; s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
+    });
+    const runFallback = async () => {
+      try {
+        if (!window.html2canvas) {
+          await loadScript('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js');
+        }
+        const scale = 2;
+        const bg = getComputedStyle(document.body).backgroundColor || '#0b0f1a';
+        const canvas = await window.html2canvas(el, {backgroundColor: bg, scale, useCORS: true, logging: false});
+        canvas.toBlob(function(blob){
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'weekend_challenge_flow.png';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        });
+      } catch (e) {
+        alert('导出失败：请通过本地服务器打开（不是 file://）。\n\n若已通过 http 访问，当前浏览器可能限制 SVG 导出。\n已尝试备用方案失败。你可以：\n  1）换 Chrome/Edge 最新版重试\n  2）或安装/启用网络后再试');
+      }
+    };
+    runFallback();
+  };
+  img.src = url;
+}
+document.getElementById('saveBtn').addEventListener('click', exportPNG);
+</script>
+</body>
+</html>

@@ -23,7 +23,8 @@
 
   const navEditionEl = document.getElementById('nav-edition');
   const statusTextEl = document.getElementById('status-text');
-  if (!countdownBlocks.length && !navEditionEl && !statusTextEl) return;
+  const editionTemplateNodes = Array.from(document.querySelectorAll('[data-edition-template]'));
+  if (!countdownBlocks.length && !navEditionEl && !statusTextEl && !editionTemplateNodes.length) return;
 
   const MS_SECOND = 1000;
   const MS_MINUTE = 60 * MS_SECOND;
@@ -98,6 +99,24 @@
     return String(number).padStart(2,'0');
   }
 
+  const EDITION_PLACEHOLDER = /\{\{\s*n\s*\}\}/g;
+  function applyEditionTemplates(edition){
+    if (!editionTemplateNodes.length) return;
+    editionTemplateNodes.forEach(node => {
+      const template = node.getAttribute('data-edition-template');
+      if (!template) return;
+      const text = template.replace(EDITION_PLACEHOLDER, edition);
+      if (node.tagName === 'TITLE'){
+        node.textContent = text;
+        document.title = text;
+      } else if (node.dataset.editionAttribute){
+        node.setAttribute(node.dataset.editionAttribute, text);
+      } else {
+        node.textContent = text;
+      }
+    });
+  }
+
   function update(){
     const now = new Date();
     let window = getWindow(now);
@@ -128,9 +147,7 @@
       if (elements.range) elements.range.textContent = formattedRange;
     });
     const edition = Math.max(1, Math.floor((window.start.getTime() - BASE_START) / WEEK_MS) + 1);
-    if (navEditionEl){
-      navEditionEl.textContent = ` · 第${edition}期`;
-    }
+    applyEditionTemplates(edition);
 
     const isRunning = window.mode === 'running';
     countdownBlocks.forEach(({ elements }) => {
