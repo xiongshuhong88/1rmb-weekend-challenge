@@ -491,17 +491,35 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
 }
 
 .retrospective-main{
-  padding:48px 24px 88px;
   display:flex;
   flex-direction:column;
-  gap:56px;
+  gap:72px;
+  padding:48px 0 96px;
 }
 
-.retrospective-main .section{
+.retrospective-section{
   padding:0;
+}
+
+.retrospective-section .container{
+  width:min(96vw,1280px);
+  margin:0 auto;
+  padding:0 24px;
   display:flex;
   flex-direction:column;
   gap:28px;
+}
+
+.retrospective-section--toc .container{
+  align-items:center;
+  gap:0;
+}
+.retrospective-section--toc .toc{
+  justify-content:center;
+  width:100%;
+}
+.retrospective-section--toc .toc__links{
+  justify-content:center;
 }
 
 .hero--retrospective{
@@ -1159,8 +1177,12 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
 
 @media (max-width:720px){
   .retrospective-main{
-    padding:32px 18px 72px;
-    gap:48px;
+    padding:32px 0 80px;
+    gap:56px;
+  }
+  .retrospective-section .container{
+    padding:0 18px;
+    gap:24px;
   }
   .hero--retrospective{
     padding:28px 22px 32px;
@@ -1181,6 +1203,13 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
   .hero-side-link{
     width:100%;
     justify-content:center;
+  }
+  .retrospective-section--toc .container{
+    align-items:flex-start;
+  }
+  .retrospective-section--toc .toc,
+  .retrospective-section--toc .toc__links{
+    justify-content:flex-start;
   }
   .bar-row{
     grid-template-columns:1fr;
