@@ -1566,6 +1566,9 @@ p{color:var(--muted);line-height:1.7;margin:.6em 0}
 main.container > .glow-shell:first-child{
   margin-top:24px;
 }
+.retrospective-main > .glow-shell{
+  margin:0;
+}
 .highlight-head{
   position:relative;
   z-index:1;
