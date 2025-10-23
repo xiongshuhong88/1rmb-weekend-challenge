@@ -22,10 +22,11 @@
 | 文件 / 目录 | 说明 |
 |-------------|------|
 | `index.html` | 主页面结构与文案。 |
-| `styles.css` | 全局样式、响应式布局、色彩系统。 |
-| `main.js` | 倒计时、期数计算、状态提示逻辑。 |
-| `hero-*.jpg` | Hero 与社群展示图片（16:9 比例）。 |
-| `wechat-qr.jpg` | 微信二维码占位图。 |
+| `pages/` | 其他专题页与流程说明，按需扩展更多 HTML 页面。 |
+| `assets/styles/styles.css` | 全局样式、响应式布局、色彩系统。 |
+| `assets/scripts/main.js` | 倒计时、期数计算、状态提示逻辑。 |
+| `assets/images/` | Hero/社群展示图、二维码与项目截图等静态资源。 |
+| `docs/` | 社群公告、复盘等 Markdown 文档。 |
 | `robots.txt` / `sitemap.xml` | 搜索引擎辅助文件。 |
 
 项目完全无依赖，适合 fork 后按需修改。
@@ -62,10 +63,10 @@ serve .
 
 ## 🛠️ 自定义指南
 
-- **文案与亮点**：直接修改 `index.html`。期数与状态由 `main.js` 自动计算，可调整基准时间或文案。
-- **视觉元素**：替换 `hero-*.jpg`、`wechat-qr.jpg` 为自己的图片，保持 16:9 比例。
+- **文案与亮点**：主要在 `index.html` 与 `pages/` 下的各页面调整。期数与状态由 `assets/scripts/main.js` 自动计算，可调整基准时间或文案。
+- **视觉元素**：替换 `assets/images/` 内的 `hero-*.jpg`、`wechat-qr.jpg` 等图片，建议保持 16:9 比例。
 - **域名/链接**：将所有 `your-domain.example`、GitHub 地址换成你的真实链接。
-- **配色 / 字体**：在 `styles.css` 顶部的 CSS 变量中快速替换品牌色；亦可引入自定义字体。
+- **配色 / 字体**：在 `assets/styles/styles.css` 顶部的 CSS 变量中快速替换品牌色；亦可引入自定义字体。
 
 ---
 
