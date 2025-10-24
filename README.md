@@ -93,6 +93,13 @@ npm run package           # 打包 dist/ + release/*.zip
 
 ---
 
+## 🤖 Agent 协作手册
+
+- [agents.md](agents.md) 汇总「一块钱周末挑战」48 小时闭环的角色职责、提示词与时间表，可直接拷贝到各类 AI 对话中。
+- 建议把 `config/event.json`、`docs/SUMMARY.md` 与 `release/` 打包结果同步在手册里引用，便于 Agent 间共享上下文。
+
+---
+
 ## 🔐 隐私保留
 
 - 站点示例域名全部为占位符，避免泄露真实地址。
@@ -110,7 +117,7 @@ npm run package           # 打包 dist/ + release/*.zip
 
 ## 🗂 文档索引
 
-各期沉淀统一存放于 `docs/`，通过 [docs/SUMMARY.md](docs/SUMMARY.md) 可快速浏览社群公告、复盘与原始数据位置。
+各期沉淀统一存放于 `docs/`，通过 [docs/SUMMARY.md](docs/SUMMARY.md) 可快速浏览社群公告、复盘与原始数据位置，Agent 手册位于项目根目录的 [agents.md](agents.md)。
 
 ---
 

@@ -2,6 +2,20 @@
 
 > 用好 AI，48 小时内跑通「选题 → MVP → 上线收款 → 复盘」。本手册梳理一套可复用的 Agent 协作框架，方便你根据项目场景自定义提示词与工作流。
 
+## 快速搭建周末挑战工作台
+
+1. 克隆/更新仓库，执行 `npm install` 初始化依赖。
+2. 根据最新报名表，将原始 Excel 放入 `data/raw/<年份>/edition-xx/`，运行 `npm run supporters:sync` 自动生成 `assets/data/supporters.json`。
+3. 在 `config/event.json` 填写本期时间、报名链接、社群状态，随后 `npm run build` 或 `npm run package`，生成可用静态站与发布压缩包。
+4. 将关键信息沉淀到 `docs/SUMMARY.md`、`docs/<年份>/edition-xx/`，方便各 Agent 快速引用历史资料。
+
+## 与仓库联动的上下文素材
+
+- **站点配置**：`config/event.json` 是所有页面共享的唯一数据源，更新后无需逐页修改 HTML。
+- **自动化脚本**：`scripts/` 目录包含配置生成、构建打包、数据清洗脚本，可由调度员 Agent 安排执行。
+- **打包产物**：`release/*.zip` 为最新的可部署包；CI 会在 push 时自动上传构建产物，适合增长/文案 Agent 分享下载链接。
+- **知识沉淀**：所有公告、复盘、数据索引统一在 `docs/`，通过 `docs/SUMMARY.md` 快速定位期次内容。
+
 ## 核心原则
 - **行动优先**：先让 Agent 帮你跑到「可上线」的版本，再细化体验。
 - **闭环导向**：所有产出都指向支付/交付闭环，拒绝信息孤岛。
