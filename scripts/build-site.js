@@ -35,6 +35,8 @@ function main() {
   const directories = ['assets', 'pages', 'config', 'docs'];
   directories.forEach(dir => copyEntry(dir));
 
+  copyEntry(path.join('pages', 'commitment-letter.html'), 'commitment-letter.html');
+
   console.info('✅ Build output written to dist/');
 }
 
