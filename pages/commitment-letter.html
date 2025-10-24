@@ -8,23 +8,6 @@
   <link href="/assets/styles/commitment-letter.css" rel="stylesheet"/>
 </head>
 <body class="commitment-page">
-  <header class="container">
-    <nav class="site-nav">
-      <div class="site-brand">
-        <div aria-hidden="true" class="logo-mark">¥1</div>
-        <span class="site-title">一块钱周末挑战<span class="edition-label" id="nav-edition" data-config-template=" · {{ value }}" data-config-text="edition.label" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
-      </div>
-      <div class="chips">
-        <a class="chip" href="/index.html">返回首页</a>
-        <a class="chip" href="/pages/announcement.html">社群公告</a>
-        <a class="chip" href="/pages/weekend_challenge_flow.html">活动流程</a>
-        <a class="chip" href="/pages/weekend-challenge-01-retrospective.html">往期总结与表彰</a>
-        <a class="chip" href="/index.html#join">加入挑战</a>
-        <a class="chip" href="/index.html#faq">FAQ</a>
-      </div>
-    </nav>
-  </header>
-
   <section class="commitment-hero">
     <div class="commitment-wrap commitment-hero__inner">
       <div class="commitment-logo"></div>
@@ -39,10 +22,10 @@
     <section class="card" style="margin-bottom:16px">
       <h2>承诺内容（默认勾选，可自行调整）</h2>
       <div class="checks">
-        <label><input type="checkbox" checked id="c1"> 每天与 AI 对话 <b>≥ 50 次</b>，问、试、用，边做边学。</label>
-        <label><input type="checkbox" checked id="c2"> 先跑通闭环，不求完美；能上线就上线，<span class="hl">真实用户</span>是最好的导师。</label>
-        <label><input type="checkbox" checked id="c3"> 48 小时内完成一个 <b>MVP</b>（可演示/可下单/可体验的最小版本）。</label>
-        <label><input type="checkbox" checked id="c4"> 在社群内透明分享进展、遇到的卡点与下一步计划。</label>
+        <label><input type="checkbox" checked id="c1"/> 每天与 AI 对话 <b>≥ 50 次</b>，问、试、用，边做边学。</label>
+        <label><input type="checkbox" checked id="c2"/> 先跑通闭环，不求完美；能上线就上线，<span class="hl">真实用户</span>是最好的导师。</label>
+        <label><input type="checkbox" checked id="c3"/> 48 小时内完成一个 <b>MVP</b>（可演示/可下单/可体验的最小版本）。</label>
+        <label><input type="checkbox" checked id="c4"/> 在社群内透明分享进展、遇到的卡点与下一步计划。</label>
       </div>
     </section>
 
@@ -51,18 +34,18 @@
       <div class="grid">
         <div>
           <label for="name">我的名字</label>
-          <input id="name" type="text" placeholder="例如：大熊" />
+          <input id="name" placeholder="例如：大熊" type="text"/>
         </div>
         <div>
           <label for="date">日期</label>
-          <input id="date" type="date" />
+          <input id="date" type="date"/>
         </div>
       </div>
 
       <div class="grid-1" style="margin-top:10px">
         <div>
           <label for="goal">本次挑战我要完成的项目</label>
-          <input id="goal" type="text" placeholder="例如：用AI做一个能自动生成封面的工具" />
+          <input id="goal" placeholder="例如：用AI做一个能自动生成封面的工具" type="text"/>
         </div>
         <div>
           <label for="dream">我期望达成的结果（一句话即可）</label>
@@ -79,7 +62,7 @@
               <button class="btn ghost" id="clearSig" type="button">清除</button>
             </div>
           </div>
-          <canvas id="signPad" width="900" height="280"></canvas>
+          <canvas height="280" id="signPad" width="900"></canvas>
         </div>
         <div class="note" style="margin-top:6px">提示：若用触控板/手机更好写；如需键入式签名，可在“名字”里填写，导出时会附上。</div>
       </div>
@@ -100,7 +83,7 @@
 
   <dialog id="preview">
     <div class="pv-wrap">
-      <canvas id="out" class="pv-canvas" width="1080" height="1440"></canvas>
+      <canvas class="pv-canvas" height="1440" id="out" width="1080"></canvas>
       <div class="btns" style="padding:8px 10px 14px">
         <button class="btn" id="save">保存PNG</button>
         <button class="btn ghost" id="closePv">关闭</button>

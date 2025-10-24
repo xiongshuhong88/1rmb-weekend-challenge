@@ -168,48 +168,49 @@
 
     const tx = cardX + 42;
     const tw = cardW - 84;
-    let ty = cardY + 150;
-    octx.font = '600 28px "PingFang SC", Inter, system-ui, sans-serif';
-    octx.fillStyle = '#a5b4fc';
-    octx.fillText('我的承诺', tx, ty);
-    ty += 16;
-    octx.font = '400 26px "PingFang SC", Inter, system-ui, sans-serif';
-    octx.fillStyle = '#dbeafe';
+    const nm = nameEl?.value?.trim() || '未署名';
+    const dt = dateEl?.value || '____-__-__';
+    const goalText = goalEl?.value || '—';
+    const dreamText = dreamEl?.value || '—';
     const items = [
       checkEls[0]?.checked ? '每天与 AI 对话 ≥ 50 次，边做边学。' : null,
       checkEls[1]?.checked ? '先跑通闭环，不求完美；真实用户是最好的导师。' : null,
       checkEls[2]?.checked ? '48 小时内完成一个 MVP（可演示/可下单/可体验）。' : null,
       checkEls[3]?.checked ? '在社群内透明分享进展与下一步计划。' : null
     ].filter(Boolean);
-    items.forEach((text) => {
-      ty = drawWrappedText(octx, `· ${text}`, tx, ty + 36, tw, 36);
-    });
+    let ty = cardY + 150;
 
-    ty += 16;
+    octx.font = '700 40px "PingFang SC", Inter, system-ui, sans-serif';
+    octx.fillStyle = '#f8fafc';
+    ty = drawWrappedText(octx, nm, tx, ty, tw, 44);
+    ty += 6;
+    octx.font = '600 30px "PingFang SC", Inter, system-ui, sans-serif';
+    octx.fillStyle = '#cbd5ff';
+    ty = drawWrappedText(octx, `日期：${dt}`, tx, ty, tw, 36);
+
+    octx.fillStyle = '#93c5fd';
+    octx.font = '500 26px "PingFang SC", Inter, system-ui, sans-serif';
+    ty = drawWrappedText(octx, '本次挑战我要完成的项目：', tx, ty + 12, tw, 34);
+    octx.fillStyle = '#e2e8f0';
+    octx.font = '400 26px "PingFang SC", Inter, system-ui, sans-serif';
+    ty = drawWrappedText(octx, goalText, tx, ty, tw, 34);
+
+    octx.fillStyle = '#93c5fd';
+    octx.font = '500 26px "PingFang SC", Inter, system-ui, sans-serif';
+    ty = drawWrappedText(octx, '我期望达成的结果：', tx, ty + 10, tw, 34);
+    octx.fillStyle = '#e2e8f0';
+    octx.font = '400 26px "PingFang SC", Inter, system-ui, sans-serif';
+    ty = drawWrappedText(octx, dreamText, tx, ty, tw, 34);
+
+    ty += 24;
     octx.font = '600 28px "PingFang SC", Inter, system-ui, sans-serif';
     octx.fillStyle = '#a5b4fc';
-    octx.fillText('我的信息', tx, ty);
-    ty += 24;
-
+    octx.fillText('我的承诺', tx, ty);
     octx.font = '400 26px "PingFang SC", Inter, system-ui, sans-serif';
-    octx.fillStyle = '#e2e8f0';
-    const nm = nameEl?.value?.trim() || '未署名';
-    const dt = dateEl?.value || '____-__-__';
-    ty = drawWrappedText(octx, `名字：${nm}    日期：${dt}`, tx, ty + 32, tw, 36);
-
-    octx.fillStyle = '#93c5fd';
-    octx.font = '500 26px "PingFang SC", Inter, system-ui, sans-serif';
-    ty = drawWrappedText(octx, '本次挑战我要完成的项目：', tx, ty + 8, tw, 36);
-    octx.fillStyle = '#e2e8f0';
-    octx.font = '400 26px "PingFang SC", Inter, system-ui, sans-serif';
-    ty = drawWrappedText(octx, goalEl?.value || '—', tx, ty, tw, 36);
-
-    octx.fillStyle = '#93c5fd';
-    octx.font = '500 26px "PingFang SC", Inter, system-ui, sans-serif';
-    ty = drawWrappedText(octx, '我期望达成的结果：', tx, ty + 12, tw, 36);
-    octx.fillStyle = '#e2e8f0';
-    octx.font = '400 26px "PingFang SC", Inter, system-ui, sans-serif';
-    ty = drawWrappedText(octx, dreamEl?.value || '—', tx, ty, tw, 36);
+    octx.fillStyle = '#dbeafe';
+    items.forEach((text) => {
+      ty = drawWrappedText(octx, `· ${text}`, tx, ty + 32, tw, 36);
+    });
 
     const signH = 220;
     const gap = 26;
