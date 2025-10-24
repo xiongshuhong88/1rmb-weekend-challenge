@@ -27,7 +27,17 @@ body.commitment-page{
 }
 .commitment-page .commitment-hero__inner{display:flex;align-items:center;gap:12px;padding:14px 4px 12px 4px}
 .commitment-page .commitment-logo{width:14px;height:14px;border-radius:50%;background:conic-gradient(from 0deg,var(--brand),var(--accent));box-shadow:0 0 16px #6ef3a577}
-.commitment-page .commitment-title{margin:0;font-size:22px;font-weight:700}
+.commitment-page .commitment-title{
+  margin:0;
+  font-size:34px;
+  line-height:1.3;
+  font-weight:800;
+}
+.commitment-page h2{
+  font-size:22px;
+  line-height:1.4;
+  margin:0 0 12px;
+}
 .commitment-page .commitment-subtitle{color:var(--muted);font-size:13px}
 .commitment-page .commitment-content{display:block;margin-top:32px;margin-bottom:24px}
 .commitment-page .card{
