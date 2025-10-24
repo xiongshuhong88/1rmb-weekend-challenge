@@ -182,3 +182,150 @@
   update();
   setInterval(update, 1000);
 })();
+
+(function () {
+  const container = document.querySelector('[data-supporter-list]');
+  if (!container) return;
+
+  const DATA_URL = 'assets/data/supporters.json';
+  const fruitThemes = [
+    { key: 'citrus', gradient: 'linear-gradient(135deg,#f97316 0%,#facc15 100%)', accent: 'rgba(255,255,255,0.45)' },
+    { key: 'berry', gradient: 'linear-gradient(135deg,#ec4899 0%,#8b5cf6 100%)', accent: 'rgba(255,255,255,0.5)' },
+    { key: 'kiwi', gradient: 'linear-gradient(135deg,#4ade80 0%,#84cc16 100%)', accent: 'rgba(255,255,255,0.32)' },
+    { key: 'dragonfruit', gradient: 'linear-gradient(135deg,#f9a8d4 0%,#fb7185 55%,#f43f5e 100%)', accent: 'rgba(255,255,255,0.55)' },
+    { key: 'blueberry', gradient: 'linear-gradient(135deg,#1e3a8a 0%,#4338ca 100%)', accent: 'rgba(255,255,255,0.42)' },
+    { key: 'grape', gradient: 'linear-gradient(135deg,#7c3aed 0%,#c026d3 100%)', accent: 'rgba(255,255,255,0.4)' },
+    { key: 'watermelon', gradient: 'linear-gradient(135deg,#f87171 0%,#fb7185 45%,#facc15 100%)', accent: 'rgba(255,255,255,0.5)' },
+    { key: 'mango', gradient: 'linear-gradient(135deg,#fbbf24 0%,#fb923c 55%,#f97316 100%)', accent: 'rgba(255,255,255,0.45)' }
+  ];
+
+  const inlineDataEl = document.getElementById('supporters-data');
+  let inlineData = null;
+  if (inlineDataEl) {
+    try {
+      inlineData = JSON.parse(inlineDataEl.textContent);
+    } catch (error) {
+      console.error('Failed to parse inline supporters data', error);
+    }
+  }
+
+  const isHttpProtocol = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+
+  function setPlaceholder(message) {
+    container.innerHTML = '';
+    const hint = document.createElement('p');
+    hint.className = 'muted supporters__placeholder';
+    hint.setAttribute('data-supporter-placeholder', '');
+    hint.textContent = message;
+    container.appendChild(hint);
+  }
+
+  function hashValue(name, seed = 0) {
+    const str = `${name || ''}${seed}`;
+    let hash = 0;
+    for (let i = 0; i < str.length; i += 1) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function themeFor(name) {
+    return fruitThemes[hashValue(name, 557) % fruitThemes.length];
+  }
+
+  function rotationFor(name) {
+    return (hashValue(name, 911) % 60) - 30;
+  }
+
+  function formatAmount(amount) {
+    const value = Number.isFinite(amount) ? amount : 0;
+    return `¥${value.toFixed(2)}`;
+  }
+
+  function createCard(supporter) {
+    const card = document.createElement('article');
+    card.className = 'supporter-card';
+
+    const avatar = document.createElement('div');
+    avatar.className = 'supporter-card__avatar';
+    const theme = themeFor(supporter.name);
+    avatar.style.setProperty('--avatar-gradient', theme.gradient);
+    avatar.dataset.fruit = theme.key;
+    avatar.style.setProperty('--avatar-rotation', `${rotationFor(supporter.name)}deg`);
+    if (theme.accent) {
+      avatar.style.setProperty('--fruit-accent', theme.accent);
+    }
+
+    const info = document.createElement('div');
+    info.className = 'supporter-card__info';
+
+    const nameEl = document.createElement('div');
+    nameEl.className = 'supporter-card__name';
+    nameEl.textContent = supporter.name;
+
+    const amountEl = document.createElement('div');
+    amountEl.className = 'supporter-card__amount';
+    amountEl.textContent = formatAmount(Number(supporter.amount));
+
+    info.appendChild(nameEl);
+    info.appendChild(amountEl);
+
+    card.appendChild(avatar);
+    card.appendChild(info);
+    return card;
+  }
+
+  function renderSupporters(list) {
+    const normalized = Array.isArray(list)
+      ? list
+          .filter(item => item && item.name && Number(item.amount) >= 10)
+          .map(item => ({
+            name: String(item.name).trim(),
+            amount: Number(item.amount)
+          }))
+          .sort((a, b) => {
+            if (b.amount !== a.amount) return b.amount - a.amount;
+            return a.name.localeCompare(b.name, 'zh-Hans', { sensitivity: 'base' });
+          })
+      : [];
+
+    if (!normalized.length) {
+      setPlaceholder('目前还没有符合条件的支持者记录，欢迎成为第一位支持者！');
+      return;
+    }
+
+    container.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    normalized.forEach(item => {
+      fragment.appendChild(createCard(item));
+    });
+    container.appendChild(fragment);
+  }
+
+  if (Array.isArray(inlineData) && inlineData.length) {
+    renderSupporters(inlineData);
+  } else {
+    setPlaceholder('名单加载中，稍等片刻…');
+  }
+
+  if (!isHttpProtocol) {
+    if (!Array.isArray(inlineData) || !inlineData.length) {
+      setPlaceholder('支持者名单预览需要通过本地服务器访问或等待数据同步。');
+    }
+    return;
+  }
+
+  fetch(DATA_URL)
+    .then(response => {
+      if (!response.ok) throw new Error(`Failed to load supporters: ${response.status}`);
+      return response.json();
+    })
+    .then(renderSupporters)
+    .catch(error => {
+      console.error(error);
+      if (!Array.isArray(inlineData) || !inlineData.length) {
+        setPlaceholder('支持者名单暂时无法获取，请稍后再试。');
+      }
+    });
+})();
