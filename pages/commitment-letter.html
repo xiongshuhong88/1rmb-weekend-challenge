@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>一块钱周末挑战 · 承诺书</title>
+  <link href="../assets/styles/styles.css" rel="stylesheet"/>
+  <link href="../assets/styles/commitment-letter.css" rel="stylesheet"/>
+</head>
+<body class="commitment-page">
+  <header class="container">
+    <nav class="site-nav">
+      <div class="site-brand">
+        <div aria-hidden="true" class="logo-mark">¥1</div>
+        <span class="site-title">一块钱周末挑战<span class="edition-label" id="nav-edition" data-config-template=" · {{ value }}" data-config-text="edition.label" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
+      </div>
+      <div class="chips">
+        <a class="chip" href="../index.html">返回首页</a>
+        <a class="chip" href="announcement.html">社群公告</a>
+        <a class="chip" href="weekend_challenge_flow.html">活动流程</a>
+        <a class="chip" href="weekend-challenge-01-retrospective.html">往期总结与表彰</a>
+        <a class="chip" href="../index.html#join">加入挑战</a>
+        <a class="chip" href="../index.html#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="commitment-hero">
+    <div class="commitment-wrap commitment-hero__inner">
+      <div class="commitment-logo"></div>
+      <div>
+        <h1 class="commitment-title">《一块钱周末挑战》承诺书</h1>
+        <div class="commitment-subtitle">签下这份承诺，即刻开启你的 48 小时行动。</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="commitment-wrap commitment-content">
+    <section class="card" style="margin-bottom:16px">
+      <h2>承诺内容（默认勾选，可自行调整）</h2>
+      <div class="checks">
+        <label><input type="checkbox" checked id="c1"> 每天与 AI 对话 <b>≥ 50 次</b>，问、试、用，边做边学。</label>
+        <label><input type="checkbox" checked id="c2"> 先跑通闭环，不求完美；能上线就上线，<span class="hl">真实用户</span>是最好的导师。</label>
+        <label><input type="checkbox" checked id="c3"> 48 小时内完成一个 <b>MVP</b>（可演示/可下单/可体验的最小版本）。</label>
+        <label><input type="checkbox" checked id="c4"> 在社群内透明分享进展、遇到的卡点与下一步计划。</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>填写你的信息</h2>
+      <div class="grid">
+        <div>
+          <label for="name">我的名字</label>
+          <input id="name" type="text" placeholder="例如：大熊" />
+        </div>
+        <div>
+          <label for="date">日期</label>
+          <input id="date" type="date" />
+        </div>
+      </div>
+
+      <div class="grid-1" style="margin-top:10px">
+        <div>
+          <label for="goal">本次挑战我要完成的项目</label>
+          <input id="goal" type="text" placeholder="例如：用AI做一个能自动生成封面的网页工具" />
+        </div>
+        <div>
+          <label for="dream">我期望达成的结果（一句话即可）</label>
+          <textarea id="dream" placeholder="例如：拿到 3 个真实用户的付费或预约，发布 1 条图文和 1 条视频"></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top:10px">
+        <label>签名（按住鼠标或手指书写）</label>
+        <div class="sign-box">
+          <div class="sign-head">
+            <span>✍️ 在下方空白处手写签名</span>
+            <div>
+              <button class="btn ghost" id="clearSig" type="button">清除</button>
+            </div>
+          </div>
+          <canvas id="signPad" width="900" height="280"></canvas>
+        </div>
+        <div class="note" style="margin-top:6px">提示：若用触控板/手机更好写；如需键入式签名，可在“名字”里填写，导出时会附上。</div>
+      </div>
+
+      <div class="btns">
+        <button class="btn" id="gen">生成承诺卡（3:4 PNG）</button>
+        <button class="btn ghost" id="dl" disabled>下载图片</button>
+        <button class="btn ghost" id="share" disabled>复制到微信</button>
+      </div>
+      <div class="note" style="margin-top:4px">生成后可下载、复制或分享给好友，作为你的「入场仪式」。</div>
+      <div class="share-status" id="shareStatus">提示：先点“生成承诺卡”，即可启用下载与分享按钮。</div>
+    </section>
+  </main>
+
+  <footer class="commitment-footer">
+    <div class="commitment-wrap">签下承诺书，即代表你将在 48 小时内完成一次完整的闭环行动。</div>
+  </footer>
+
+  <dialog id="preview">
+    <div class="pv-wrap">
+      <canvas id="out" class="pv-canvas" width="1080" height="1440"></canvas>
+      <div class="btns" style="padding:8px 10px 14px">
+        <button class="btn" id="save">保存PNG</button>
+        <button class="btn ghost" id="closePv">关闭</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script defer src="../assets/scripts/event-config.js"></script>
+  <script defer src="../assets/scripts/apply-config.js"></script>
+  <script defer src="../assets/scripts/main.js"></script>
+  <script defer src="../assets/scripts/commitment-letter.js"></script>
+</body>
+</html>

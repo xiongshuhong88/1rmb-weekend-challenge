@@ -1,0 +1,102 @@
+:root{
+  --bg1:#0b0f1a;
+  --bg2:#101826;
+  --brand:#6ef3a5;
+  --accent:#8b5cf6;
+  --muted:#9aa4b2;
+  --card:#0f172aa6;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body.commitment-page{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro","PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;
+  color:#e6edf3;
+  background:radial-gradient(1200px 800px at 10% -10%, #1f2937 0%, transparent 60%),
+             radial-gradient(1200px 800px at 110% 10%, #111827 0%, transparent 60%),
+             linear-gradient(180deg, var(--bg1), var(--bg2));
+  letter-spacing:.2px;
+}
+.commitment-page .commitment-wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.commitment-page .commitment-hero{
+  background:linear-gradient(180deg,#0b0f1acc,#0b0f1a80 70%,transparent);
+  border-bottom:1px solid #1f2937;
+  margin-bottom:24px;
+  backdrop-filter:saturate(140%) blur(8px);
+}
+.commitment-page .commitment-hero__inner{display:flex;align-items:center;gap:12px;padding:14px 4px 12px 4px}
+.commitment-page .commitment-logo{width:14px;height:14px;border-radius:50%;background:conic-gradient(from 0deg,var(--brand),var(--accent));box-shadow:0 0 16px #6ef3a577}
+.commitment-page .commitment-title{margin:0;font-size:22px;font-weight:700}
+.commitment-page .commitment-subtitle{color:var(--muted);font-size:13px}
+.commitment-page .commitment-content{display:block;margin-top:32px;margin-bottom:24px}
+.commitment-page .card{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:0 6px 30px rgba(0,0,0,.35);
+}
+.commitment-page .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.commitment-page .grid-1{display:grid;grid-template-columns:1fr;gap:14px}
+.commitment-page label{display:block;font-size:13px;color:#c7d2fe;margin-bottom:6px}
+.commitment-page input[type="text"],
+.commitment-page input[type="date"],
+.commitment-page textarea,
+.commitment-page select{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  background:#0b1220;
+  border:1px solid #1f2535;
+  color:#e6edf3;
+  outline:none;
+  transition:border .2s, box-shadow .2s;
+}
+.commitment-page textarea{min-height:100px;resize:vertical}
+.commitment-page input:focus,
+.commitment-page textarea:focus{
+  border-color:#2dd4bf;
+  box-shadow:0 0 0 4px rgba(45,212,191,.12);
+}
+.commitment-page .checks{display:grid;grid-template-columns:1fr;gap:10px;margin-top:6px}
+.commitment-page .checks label{display:flex;align-items:flex-start;gap:10px;color:#cbd5e1}
+.commitment-page .checks input{accent-color:var(--brand)}
+.commitment-page .sign-box{border-radius:14px;border:1px dashed #334155;background:#0a1324;position:relative}
+.commitment-page .sign-head{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;font-size:12px;color:#9fb0c2;border-bottom:1px dashed #1f2a3a}
+.commitment-page canvas{width:100%;height:140px;display:block;background:repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,.04) 34px 35px)}
+.commitment-page .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.commitment-page .btn{
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  padding:10px 14px;
+  border-radius:14px;
+  font-weight:600;
+  color:#0a0f1a;
+  background:linear-gradient(135deg, var(--brand), #22d3ee);
+  box-shadow:0 6px 20px rgba(34,211,238,.25);
+  transition:transform .03s;
+}
+.commitment-page .btn:active{transform:translateY(1px)}
+.commitment-page .btn.ghost{background:transparent;color:#cbd5e1;border:1px solid #334155;box-shadow:none}
+.commitment-page .note{font-size:12px;color:#94a3b8}
+.commitment-page .hl{color:var(--brand);font-weight:700}
+.commitment-page .commitment-footer{margin:18px 0 40px;color:#93a1b5;font-size:12px;text-align:center}
+.commitment-page dialog#preview{border:none;border-radius:18px;padding:0;overflow:hidden;background:#0b0f1a}
+.commitment-page .pv-wrap{padding:10px}
+.commitment-page .pv-canvas{
+  width:min(520px,90vw);
+  max-width:100%;
+  height:auto;
+  aspect-ratio:3 / 4;
+  display:block;
+}
+.commitment-page .share-status{font-size:12px;color:#94a3b8;margin-top:6px}
+.commitment-page .share-status[data-state="success"]{color:#86efac}
+.commitment-page .share-status[data-state="error"]{color:#fca5a5}
+@media (max-width:720px){
+  .commitment-page .grid{grid-template-columns:1fr}
+  .commitment-page .btns{flex-direction:column}
+  .commitment-page .btns .btn{width:100%}
+}
