@@ -180,7 +180,7 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
   <nav class="site-nav">
     <div class="site-brand">
       <div aria-hidden="true" class="logo-mark">¥1</div>
-      <span class="site-title">一块钱周末挑战<span class="edition-label" id="nav-edition" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
+      <span class="site-title">一块钱周末挑战<span class="edition-label" data-config-template=" · {{ value }}" data-config-text="edition.label" id="nav-edition" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
     </div>
     <div class="chips">
       <a class="chip" href="../index.html">返回首页</a>
@@ -198,9 +198,9 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
   <div class="status-banner__inner">
     <span id="status-text">📆 当前为第 ? 期活动（尚未开始）｜预计本周五 20:00 开营，敬请期待！</span>
     <div class="status-banner__links">
-      <a href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a>
+      <a data-config-href="site.domain" href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a>
       <span>·</span>
-      <a href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
+      <a data-config-href="site.github" href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
     </div>
   </div>
 </div>
@@ -237,7 +237,7 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
 
     <div id="capture" class="card">
       <div class="header">
-        <h1 class="h-title"><span data-edition-template="第{{n}}期">第 ? 期</span>｜一块钱周末挑战 —— 活动流程说明</h1>
+        <h1 class="h-title"><span data-config-text="edition.label" data-edition-template="第{{n}}期">第 ? 期</span>｜一块钱周末挑战 —— 活动流程说明</h1>
         <p class="h-sub">两天实战：从构思到上线与推广 · 周五 20:00 腾讯会议集合</p>
       </div>
       <div class="section">
@@ -355,20 +355,20 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
       <div class="grid cols-2">
         <div class="card">
           <h2 style="margin-top:0">现在加入</h2>
-          <p>报名费仅 ¥1，用于社群维护与资料整理。扫码报名加入 <strong>「一块钱周末挑战」</strong> 社群，获取开营通知与入群方式，或直接<a href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名链接</a>。</p>
+          <p>报名费仅 ¥1，用于社群维护与资料整理。扫码报名加入 <strong>「一块钱周末挑战」</strong> 社群，获取开营通知与入群方式，或直接<a data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名链接</a>。</p>
           <p class="muted" style="margin-bottom:12px">加入后可获得：① 免费建站教学 ② AI 剪辑课程 ③ 周末实战项目直播</p>
           <div class="chips" style="margin-top:10px">
             <span class="chip">不要求背景</span>
             <span class="chip">可以用 AI</span>
             <span class="chip">可以卖模板/工具/课程/服务</span>
-            <a class="chip" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">立即报名</a>
+            <a class="chip" data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">立即报名</a>
           </div>
         </div>
         <div class="card">
           <div class="qr">
             <img alt="扫码报名加入一块钱周末挑战社群" decoding="async" loading="lazy" src="../assets/images/扫码报名.jpg"/>
           </div>
-          <p class="muted" style="margin:8px 0 0">* 扫码报名，查看活动说明并加入微信群获取最新安排，或<a href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名表单</a>。</p>
+          <p class="muted" style="margin:8px 0 0">* 扫码报名，查看活动说明并加入微信群获取最新安排，或<a data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名表单</a>。</p>
         </div>
       </div>
     </div>
@@ -378,9 +378,9 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
 <footer class="container footer">
   <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
     <div>
-      © <span id="y"></span> 一块钱周末挑战 · Made with ❤️ by 大熊 |
-      <a href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a> ·
-      <a href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
+      © <span id="y"></span> 一块钱周末挑战 · Made with ❤️ by <span data-config-text="site.author">大熊</span> |
+      <a data-config-href="site.domain" href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a> ·
+      <a data-config-href="site.github" href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
     </div>
     <div class="chips">
       <a class="chip" href="../index.html">返回首页</a>
@@ -390,6 +390,8 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
   </div>
 </footer>
 
+<script defer src="../assets/scripts/event-config.js"></script>
+<script defer src="../assets/scripts/apply-config.js"></script>
 <script defer src="../assets/scripts/main.js"></script>
 <script>
 async function exportPNG() {

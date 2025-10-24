@@ -13,7 +13,7 @@
 <nav class="site-nav">
 <div class="site-brand">
 <div aria-hidden="true" class="logo-mark">¥1</div>
-<span class="site-title">一块钱周末挑战<span class="edition-label" id="nav-edition" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
+<span class="site-title">一块钱周末挑战<span class="edition-label" data-config-template=" · {{ value }}" data-config-text="edition.label" id="nav-edition" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
 </div>
 <div class="chips">
 <a class="chip" href="../index.html">返回首页</a>
@@ -34,7 +34,7 @@
 <p>用 48 小时，从零创造价值，用行动赚到第一块钱。和同路人一起学习、一起做项目、一起成长为能把想法变成现实的人。</p>
 <p>本页汇总社群介绍、预习资料、精选案例、工具推荐与活动安排，方便你快速预热、随时回看、不断更新。</p>
 <div class="cta-row">
-<a class="btn primary" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">填写报名表单</a>
+<a class="btn primary" data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">填写报名表单</a>
 <a class="btn ghost" href="#join">查看扫码入口</a>
 <a class="btn ghost" href="weekend_challenge_flow.html">查看活动流程</a>
 <a class="btn ghost" href="../index.html#join">了解挑战流程</a>
@@ -440,7 +440,7 @@
 <section class="section glow-shell" id="join">
 <div class="section-header">
 <h2>🤝 现在加入社群</h2>
-<p class="muted">报名费 ¥1，用于社群维护与资料整理。扫描二维码，获取开营通知与入群方式，或直接<a href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名链接</a>。</p>
+<p class="muted">报名费 ¥1，用于社群维护与资料整理。扫描二维码，获取开营通知与入群方式，或直接<a data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名链接</a>。</p>
 </div>
 <div class="grid cols-2 join-grid">
 <div class="card">
@@ -452,7 +452,7 @@
 <li>一群同频的创作者伙伴</li>
 </ul>
 <div class="cta-row">
-<a class="btn primary" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">立即填写报名表单</a>
+<a class="btn primary" data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">立即填写报名表单</a>
 <a class="btn ghost" href="#resources">回到资料包</a>
 </div>
 </div>
@@ -460,7 +460,7 @@
 <div class="qr">
 <img alt="扫码报名加入一块钱周末挑战社群" decoding="async" loading="lazy" src="../assets/images/扫码报名.jpg"/>
 </div>
-<p class="muted" style="margin:8px 0 0">扫码后填写报名信息，确认本周挑战席位；无法扫码可<a href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名表单</a>。</p>
+<p class="muted" style="margin:8px 0 0">扫码后填写报名信息，确认本周挑战席位；无法扫码可<a data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">点击报名表单</a>。</p>
 </div>
 </div>
 </section>
@@ -468,9 +468,9 @@
 <footer class="container footer">
 <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
 <div>
-        © <span id="y"></span> 一块钱周末挑战 · Made with ❤️ by 大熊 |
-        <a href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a> ·
-        <a href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
+        © <span id="y"></span> 一块钱周末挑战 · Made with ❤️ by <span data-config-text="site.author">大熊</span> |
+        <a data-config-href="site.domain" href="https://weekend.sightx.top" rel="noopener" target="_blank">官网</a> ·
+        <a data-config-href="site.github" href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" rel="noopener" target="_blank">GitHub</a>
 </div>
 <div class="chips">
 <a class="chip" href="../index.html">返回首页</a>
@@ -479,6 +479,8 @@
 </div>
 </div>
 </footer>
+<script defer="" src="../assets/scripts/event-config.js"></script>
+<script defer="" src="../assets/scripts/apply-config.js"></script>
 <script defer="" src="../assets/scripts/main.js"></script>
 </body>
 </html>

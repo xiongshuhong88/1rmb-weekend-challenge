@@ -1,0 +1,30 @@
+{
+  "site": {
+    "name": "一块钱周末挑战",
+    "domain": "https://weekend.sightx.top",
+    "heroImage": "https://weekend.sightx.top/hero-multi-device.jpg",
+    "github": "https://github.com/xiongshuhong88/1rmb-weekend-challenge",
+    "author": "大熊"
+  },
+  "registration": {
+    "formUrl": "https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o",
+    "feeNotice": "报名费 ¥1 · 每周末开营 · 纯实践互助"
+  },
+  "edition": {
+    "number": 1,
+    "label": "第1期",
+    "labelFull": "第一期",
+    "statusUpcoming": "📆 当前为第一期活动（尚未开始）｜预计本周五 20:00 开营，敬请期待！",
+    "retrospectiveBanner": "📖 第一期开营：2025 年 10 月 17–19 日｜本页为总结与表彰回顾",
+    "retrospectiveBadge": "第一期回顾"
+  },
+  "schedule": {
+    "startWeekday": 5,
+    "startHourUTC": 12,
+    "durationHours": 52,
+    "baseStartISO": "2025-10-17T12:00:00.000Z"
+  },
+  "data": {
+    "supportersUrl": "assets/data/supporters.json"
+  }
+}

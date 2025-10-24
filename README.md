@@ -45,6 +45,22 @@ serve .
 
 ---
 
+## 🧰 开发与构建流程
+
+```bash
+npm install               # 安装开发依赖
+npm run dev               # 本地预览（使用 http-server）
+npm run lint              # HTML / CSS / JS 体检
+npm run build             # 生成 dist/ 静态站
+npm run package           # 打包 dist/ + release/*.zip
+```
+
+> `dist/` 与 `release/` 已加入 `.gitignore`，打包产物可在 `release/` 目录找到。
+
+`config/event.json` 是站点的单一配置源，运行 `npm run build` / `npm run package` 会自动同步至 `assets/scripts/event-config.js` 并写入构建产物。
+
+---
+
 ## ☁️ Cloudflare Pages 部署示例
 
 1. 登录 Cloudflare → Pages → **Create project** → 选择 **Upload** 或 **Connect to Git**。  
@@ -70,6 +86,13 @@ serve .
 
 ---
 
+## 📦 数据与脚本
+
+- `npm run supporters:sync`：从 `data/raw/` 中的报名 Excel 聚合高金额支持者，输出 `assets/data/supporters.json`。
+- `scripts/`：收录配置生成、构建、打包等自动化脚本，可直接复用在 CI 或本地工具链。
+
+---
+
 ## 🔐 隐私保留
 
 - 站点示例域名全部为占位符，避免泄露真实地址。
@@ -82,6 +105,12 @@ serve .
 - 欢迎 Fork 并提交 Pull Request，一起优化文案、视觉或功能。
 - 有任何问题或建议，可在 Issues 中讨论。
 - 如果这个项目对你有帮助，欢迎在 GitHub Star 支持：`https://github.com/xiongshuhong88/1rmb-weekend-challenge`
+
+---
+
+## 🗂 文档索引
+
+各期沉淀统一存放于 `docs/`，通过 [docs/SUMMARY.md](docs/SUMMARY.md) 可快速浏览社群公告、复盘与原始数据位置。
 
 ---
 

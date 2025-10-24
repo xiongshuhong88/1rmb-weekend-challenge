@@ -1,0 +1,26 @@
+{
+  "name": "weekend-challenge-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "http-server -c-1 -p 4173 .",
+    "clean": "node scripts/clean.js",
+    "generate:config": "node scripts/build-config.js",
+    "build": "node scripts/build-site.js",
+    "lint:html": "html-validate \"index.html\" \"pages/**/*.html\"",
+    "lint:css": "stylelint \"assets/**/*.css\"",
+    "lint:js": "eslint \"assets/scripts/**/*.js\" \"scripts/**/*.js\"",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "package": "npm run clean && npm run build && node scripts/package-site.js",
+    "supporters:sync": "node scripts/export-supporters.js"
+  },
+  "devDependencies": {
+    "archiver": "^5.3.2",
+    "eslint": "^8.57.0",
+    "html-validate": "^10.2.1",
+    "http-server": "^14.1.1",
+    "stylelint": "^16.8.1",
+    "stylelint-config-standard": "^36.0.0",
+    "xlsx": "^0.18.5"
+  }
+}

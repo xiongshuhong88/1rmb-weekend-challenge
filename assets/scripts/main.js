@@ -1,3 +1,5 @@
+const EVENT_CONFIG = window.__EVENT_CONFIG__ || {};
+
 (function () {
   const yearEl = document.getElementById('y');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -31,10 +33,13 @@
   const MS_HOUR = 60 * MS_MINUTE;
   const MS_DAY = 24 * MS_HOUR;
   const WEEK_MS = 7 * MS_DAY;
-  const EVENT_DURATION_MS = 52 * MS_HOUR;
-  const START_WEEKDAY = 5; // Friday
-  const START_HOUR_UTC = 12; // 20:00 Asia/Shanghai
-  const BASE_START = Date.UTC(2025, 9, 17, START_HOUR_UTC, 0, 0, 0);
+  const scheduleConfig = EVENT_CONFIG.schedule || {};
+  const START_WEEKDAY = Number.isInteger(scheduleConfig.startWeekday) ? scheduleConfig.startWeekday : 5;
+  const START_HOUR_UTC = Number.isInteger(scheduleConfig.startHourUTC) ? scheduleConfig.startHourUTC : 12;
+  const EVENT_DURATION_MS = Math.max(1, (scheduleConfig.durationHours || 52)) * MS_HOUR;
+  const BASE_START = scheduleConfig.baseStartISO
+    ? Date.parse(scheduleConfig.baseStartISO)
+    : Date.UTC(2025, 9, 17, START_HOUR_UTC, 0, 0, 0);
 
   const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
     timeZone: 'Asia/Shanghai',
@@ -174,7 +179,11 @@
         const endWeekday = weekdayFormatter.format(window.end);
         statusTextEl.textContent = `📆 第${edition}期挑战进行中｜${endParts.month}月${endParts.day}日（${endWeekday}）24:00 收队，欢迎加入围观或复盘`;
       } else {
-        statusTextEl.textContent = `📆 当前为第${edition}期活动（尚未开始）｜预计 ${startParts.month}月${startParts.day}日（${startWeekday}）20:00 开营，敬请期待！`;
+        const configured = EVENT_CONFIG.edition && EVENT_CONFIG.edition.statusUpcoming;
+        statusTextEl.textContent =
+          configured && EVENT_CONFIG.edition && EVENT_CONFIG.edition.number === edition
+            ? configured
+            : `📆 当前为第${edition}期活动（尚未开始）｜预计 ${startParts.month}月${startParts.day}日（${startWeekday}）20:00 开营，敬请期待！`;
       }
     }
   }
@@ -187,7 +196,8 @@
   const container = document.querySelector('[data-supporter-list]');
   if (!container) return;
 
-  const DATA_URL = 'assets/data/supporters.json';
+  const DATA_URL =
+    (EVENT_CONFIG.data && EVENT_CONFIG.data.supportersUrl) || 'assets/data/supporters.json';
   const fruitThemes = [
     { key: 'citrus', gradient: 'linear-gradient(135deg,#f97316 0%,#facc15 100%)', accent: 'rgba(255,255,255,0.45)' },
     { key: 'berry', gradient: 'linear-gradient(135deg,#ec4899 0%,#8b5cf6 100%)', accent: 'rgba(255,255,255,0.5)' },
