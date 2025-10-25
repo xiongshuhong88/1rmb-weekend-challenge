@@ -10,7 +10,7 @@ window.__EVENT_CONFIG__ = {
   },
   "registration": {
     "formUrl": "https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o",
-    "feeNotice": "报名费 ¥1 · 每周末开营 · 纯实践互助"
+    "feeNotice": "报名费 ¥10 · 每周末开营 · 纯实践互助"
   },
   "edition": {
     "number": 1,
