@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>一块钱周末挑战·第二期总结与复盘</title>
+  <meta name="description" content="第二期复盘：参与度回落下的关键卡点与改进方案，现场完成“新手三步上线”演示，发布新手入门包，并公布第三期挑战安排（10/31–11/2，报名费 ¥10）。"/>
+  <meta name="keywords" content="一块钱周末挑战, 48 小时 MVP, 第二期复盘, 新手包, 快速部署"/>
+  <link rel="canonical" href="https://weekend.sightx.top/weekend-challenge-02-retrospective"/>
+  <meta property="og:title" content="一块钱周末挑战·第二期总结与复盘"/>
+  <meta property="og:description" content="关键卡点与改进方案，新手三步上线演示与入门包，第三期挑战 10/31–11/2（¥10 报名）。"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://weekend.sightx.top/weekend-challenge-02-retrospective"/>
+  <meta property="og:image" data-config-content="site.heroImage" content="https://weekend.sightx.top/hero-multi-device.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="一块钱周末挑战·第二期总结与复盘"/>
+  <meta name="twitter:description" content="关键卡点与改进方案，新手三步上线演示与入门包，第三期挑战 10/31–11/2（¥10 报名）。"/>
+  <meta name="twitter:image" data-config-content="site.heroImage" content="https://weekend.sightx.top/hero-multi-device.jpg"/>
+  <meta name="color-scheme" content="light dark"/>
+  <link rel="stylesheet" href="../assets/styles/styles.css"/>
+  <style>
+    /* 轻度页面专属微调，保持与第1期风格一致 */
+    .hero--retrospective .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .kicker { font-size: 12px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+  </style>
+  <!-- 本页不依赖 edition.retrospectiveBanner/Badge，避免覆盖第1期配置 -->
+</head>
+<body class="retrospective-page">
+  <header class="container">
+    <nav class="site-nav">
+      <div class="site-brand">
+        <div class="logo-mark" aria-hidden="true">¥1</div>
+        <span class="site-title">一块钱周末挑战<span class="edition-label"> · 第2期</span></span>
+      </div>
+      <div class="chips">
+        <a class="chip" href="../index.html">返回首页</a>
+        <a class="chip" href="announcement.html">社群公告</a>
+        <a class="chip" href="weekend_challenge_flow.html">活动流程</a>
+        <a class="chip" href="retrospectives.html">总结目录</a>
+        <a class="chip" href="../index.html#join">加入挑战</a>
+        <a class="chip" href="../index.html#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="status-banner status-banner--retrospective">
+    <div class="status-banner__inner">
+      <span>📖 第二期开营：2025 年 10 月 24–26 日｜本页为总结与复盘</span>
+      <div class="status-banner__links">
+        <a data-config-href="site.domain" href="https://weekend.sightx.top" target="_blank" rel="noopener">官网</a>
+        <span>·</span>
+        <a data-config-href="site.github" href="https://github.com/xiongshuhong88/1rmb-weekend-challenge" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="retrospective-main">
+    <section id="highlights" class="retrospective-section glow-shell">
+      <div class="container">
+        <div class="hero hero--retrospective">
+          <div class="hero-copy">
+            <span class="badge">第二期复盘</span>
+            <h1>第二期总结与复盘：卡点、最快路径与下一步</h1>
+            <p>本期参与度相对回落，我们把注意力集中在“如何让新手更快跑通”。会议现场演示了“新手三步上线”，沉淀为可复用的 <strong>新手入门包</strong>，并敲定下期挑战安排与门槛。</p>
+            <div class="hero-stats hero-stats--retrospective">
+              <article class="stat-card">
+                <strong>3</strong>
+                <span>关键卡点</span>
+                <small>工具/网络/AI 对话</small>
+              </article>
+              <article class="stat-card">
+                <strong>3 步</strong>
+                <span>上线演示</span>
+                <small>生成 → 部署 → 表单</small>
+              </article>
+              <article class="stat-card">
+                <strong>¥10</strong>
+                <span>报名门槛</span>
+                <small>第三期 · 10/31–11/2</small>
+              </article>
+            </div>
+            <div class="cta-row">
+              <a class="btn primary" data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" target="_blank" rel="noopener">报名下期挑战</a>
+              <a class="btn ghost" href="#starter-pack">查看新手入门包</a>
+            </div>
+          </div>
+          <div class="hero-side">
+            <div class="card hero-side-card">
+              <span class="hero-side-kicker">执行心法</span>
+              <h2>低摩擦起步</h2>
+              <p>用“最笨但能跑通”的路径拿到正反馈：先静态页面，后域名与后台。</p>
+              <ul class="hero-side-points">
+                <li><strong>先做可见成果</strong><span>当晚出雏形，链接可分享。</span></li>
+                <li><strong>按钮直达表单</strong><span>麦客承担支付与信息采集。</span></li>
+                <li><strong>兴趣驱动</strong><span>从自己愿意坚持的小工具开工。</span></li>
+              </ul>
+            </div>
+            <div class="card hero-side-card hero-side-card--timeline">
+              <h3>下期安排</h3>
+              <ul class="timeline">
+                <li><strong>时间：</strong>2025 年 10 月 31 日 – 11 月 2 日</li>
+                <li><strong>报名：</strong>费用 ¥10（用于筛选意愿与资料整理）</li>
+                <li><strong>目标：</strong>48 小时内跑通 MVP → 上线 → 收款</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlights-grid">
+          <article class="card highlight-item">
+            <h3>三个关键卡点</h3>
+            <p>线上社群“低门槛≠低摩擦”。综合社群反馈，本期的三大卡点集中在：</p>
+            <ul>
+              <li><strong>工具选择：</strong>不知道选谁，不敢下手。</li>
+              <li><strong>网络门槛：</strong>环境差异带来访问与部署的挫败感。</li>
+              <li><strong>与 AI 对话：</strong>不会拆解，不知从何问起。</li>
+            </ul>
+          </article>
+          <article class="card highlight-item">
+            <h3>新手三步上线（现场演示）</h3>
+            <p>以“静态站点”为最小可交付：</p>
+            <ol>
+              <li><strong>生成：</strong>让 AI 产出一页式站点（含 CTA 按钮）。</li>
+              <li><strong>部署：</strong>用 Cloudflare Pages / Vercel / Netlify 任意其一。</li>
+              <li><strong>收集：</strong>按钮直达麦客表单，承担信息与支付。</li>
+            </ol>
+            <p class="muted">域名与后台功能放到第二阶段，先把“可见链接”跑起来。</p>
+          </article>
+          <article class="card highlight-item">
+            <h3>来自现场的好建议</h3>
+            <p><strong>吴伟：</strong>聚焦“能上线”的路径，先跑通免费托管与表单再扩展。</p>
+            <p><strong>孙攀：</strong>兴趣驱动 + 引导式提示词，先把自己的“小工具”跑起来。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="starter-pack" class="section glow-shell projects-section retrospective-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>新手入门包（更人话、一步步来）</h2>
+          <p class="muted">先学会问，再做一页网页，最后把它放到网上。会问，就已经走了一半。</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-meta"><span class="project-status project-status--live">从提问开始</span></div>
+              <h3>先学会提问（开口就能用）</h3>
+              <p>把 AI 当作会帮忙的朋友，按这个顺序开口：</p>
+              <ol>
+                <li>我想做的主题是「____」，请列 5 个具体场景（要接地气）。</li>
+                <li>选场景 A，写一段 300–500 字的销售文案：主标题/3 个卖点/一个行动按钮。</li>
+                <li>请把这段文案做成一页网页（HTML/CSS），按钮文案写“立即报名/试用”。</li>
+                <li>按钮点开后，需要收集：姓名、微信、需求，请设计表单字段。</li>
+                <li>润色成“价值-证据-行动”的逻辑，再压一遍字数。</li>
+              </ol>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-meta"><span class="project-status project-status--mvp">做网页</span></div>
+              <h3>做一个一页网站（复制就能改）</h3>
+              <ul>
+                <li>把 AI 给的 HTML/CSS 复制到本地文件夹（如 <code>index.html</code>）。</li>
+                <li>保留一个明显的大按钮，先直达报名/收集，不急着做登录、后台。</li>
+                <li>能看到页面、能点按钮，就算第一步完成。</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-meta"><span class="project-status project-status--paid">放到网上</span></div>
+              <h3>放到网上（3 种任选）</h3>
+              <ul>
+                <li><strong>Cloudflare Pages：</strong>新建项目 → 上传文件夹 → 复制链接分享。</li>
+                <li><strong>Vercel：</strong>New Project → Deploy → Upload → 复制链接。</li>
+                <li><strong>Netlify：</strong>Add new site → Deploy manually → 上传 → 复制链接。</li>
+              </ul>
+              <p class="muted">域名与后台功能放第二阶段；先拿到“可见链接”，再收集 5 条反馈。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="retrospective-section glow-shell">
+      <div class="container">
+        <div class="card">
+          <h3>加入第三期：10/31–11/2（报名费 ¥10）</h3>
+          <p>我们将以“新手入门包”为默认起跑线，继续强调行动与闭环。欢迎真正想做出成果的你加入。</p>
+          <div class="cta-row">
+            <a class="btn primary" data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" target="_blank" rel="noopener">立即报名</a>
+            <a class="btn ghost" data-config-href="site.domain" href="https://weekend.sightx.top" target="_blank" rel="noopener">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="muted">© <span data-config-text="site.name">一块钱周末挑战</span> · 由 <span data-config-text="site.author">大熊</span> 发起</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
