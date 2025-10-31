@@ -20,7 +20,7 @@ const defaultSource = path.join(
   'raw',
   '2025',
   'edition-01',
-  '一块钱周末挑战-第1期-报名中!-ZWdO-表单反馈导出_2025-10-23.xlsx'
+  '一块钱周末挑战-第1期-报名中!-FLlZ-表单反馈导出_2025-11-01.xlsx'
 );
 const defaultOutput = path.join(rootDir, 'assets', 'data', 'supporters.json');
 
