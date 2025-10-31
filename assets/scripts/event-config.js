@@ -23,7 +23,7 @@ window.__EVENT_CONFIG__ = {
   "schedule": {
     "startWeekday": 5,
     "startHourUTC": 12,
-    "durationHours": 52,
+    "durationHours": 48,
     "baseStartISO": "2025-10-17T12:00:00.000Z"
   },
   "data": {

@@ -36,7 +36,7 @@ const EVENT_CONFIG = window.__EVENT_CONFIG__ || {};
   const scheduleConfig = EVENT_CONFIG.schedule || {};
   const START_WEEKDAY = Number.isInteger(scheduleConfig.startWeekday) ? scheduleConfig.startWeekday : 5;
   const START_HOUR_UTC = Number.isInteger(scheduleConfig.startHourUTC) ? scheduleConfig.startHourUTC : 12;
-  const EVENT_DURATION_MS = Math.max(1, (scheduleConfig.durationHours || 52)) * MS_HOUR;
+  const EVENT_DURATION_MS = Math.max(1, (scheduleConfig.durationHours || 48)) * MS_HOUR;
   const BASE_START = scheduleConfig.baseStartISO
     ? Date.parse(scheduleConfig.baseStartISO)
     : Date.UTC(2025, 9, 17, START_HOUR_UTC, 0, 0, 0);
@@ -166,8 +166,8 @@ const EVENT_CONFIG = window.__EVENT_CONFIG__ || {};
       }
       if (elements.note){
         elements.note.textContent = isRunning
-          ? '周日 24:00 收队（北京时间）'
-          : '周五晚 20:00 开营 · 周日 24:00 收队（北京时间）';
+          ? '周日晚上八点收队（北京时间）'
+          : '周五晚 20:00 开营 · 周日晚上八点收队（北京时间）';
       }
     });
 
@@ -177,7 +177,7 @@ const EVENT_CONFIG = window.__EVENT_CONFIG__ || {};
       if (window.mode === 'running'){
         const endParts = dateParts(window.end);
         const endWeekday = weekdayFormatter.format(window.end);
-        statusTextEl.textContent = `📆 第${edition}期挑战进行中｜${endParts.month}月${endParts.day}日（${endWeekday}）24:00 收队，欢迎加入围观或复盘`;
+        statusTextEl.textContent = `📆 第${edition}期挑战进行中｜${endParts.month}月${endParts.day}日（${endWeekday}）晚上八点收队，欢迎加入围观或复盘`;
       } else {
         const configured = EVENT_CONFIG.edition && EVENT_CONFIG.edition.statusUpcoming;
         statusTextEl.textContent =

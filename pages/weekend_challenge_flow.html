@@ -187,6 +187,7 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
       <a class="chip" href="announcement.html">社群公告</a>
       <a class="chip" href="weekend_challenge_flow.html">活动流程</a>
       <a class="chip" href="retrospectives.html">总结目录</a>
+      <a class="chip" href="community-highlights-3rd.html">线上交流亮点</a>
       <a class="chip" href="../index.html#join">加入挑战</a>
       <a class="chip" href="../index.html#rules">规则</a>
       <a class="chip" href="../index.html#community">社区地点</a>
@@ -204,31 +205,7 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
     </div>
   </div>
 </div>
-<div aria-live="polite" class="countdown-banner" data-countdown role="region">
-  <div class="countdown-banner__inner">
-    <div class="countdown-banner__title"><span data-title="" id="countdown-title">下一次挑战</span>：<span data-range="" id="challenge-range">--</span></div>
-    <div class="countdown-banner__label" data-label="" id="countdown-label">距离下一次挑战还有</div>
-    <div class="countdown-banner__timer">
-      <div class="countdown-segment">
-        <span data-days="" id="countdown-days">--</span>
-        <small>天</small>
-      </div>
-      <div class="countdown-segment">
-        <span data-hours="" id="countdown-hours">--</span>
-        <small>小时</small>
-      </div>
-      <div class="countdown-segment">
-        <span data-minutes="" id="countdown-minutes">--</span>
-        <small>分钟</small>
-      </div>
-      <div class="countdown-segment">
-        <span data-seconds="" id="countdown-seconds">--</span>
-        <small>秒</small>
-      </div>
-    </div>
-    <div class="countdown-banner__note" data-note="" id="countdown-note">周五晚 20:00 开营 · 周日 24:00 收队（北京时间）</div>
-  </div>
-</div>
+<div data-countdown-placeholder=""></div>
 
 <main class="flow-main">
   <div class="container flow-shell">
@@ -392,6 +369,7 @@ kbd{ background:#101736; border:1px solid #304070; padding:2px 6px; border-radiu
 
 <script defer src="../assets/scripts/event-config.js"></script>
 <script defer src="../assets/scripts/apply-config.js"></script>
+<script defer src="../assets/scripts/countdown-template.js"></script>
 <script defer src="../assets/scripts/main.js"></script>
 <script>
 async function exportPNG() {
