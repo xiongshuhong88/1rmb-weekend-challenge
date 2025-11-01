@@ -2192,24 +2192,26 @@ main.container > .glow-shell:first-child{
     gap:12px;
   }
   .supporters__grid{
-    margin-top:14px;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:10px;
+    margin-top:12px;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:8px;
   }
   .supporter-card{
-    padding:10px 8px;
-    gap:6px;
-    border-radius:12px;
+    padding:8px 6px;
+    gap:4px;
+    border-radius:10px;
   }
   .supporter-card__avatar{
-    width:28px;
-    height:28px;
+    width:26px;
+    height:26px;
   }
   .supporter-card__name{
-    font-size:12px;
+    font-size:11px;
+    line-height:1.2;
   }
   .supporter-card__amount{
-    font-size:10px;
+    font-size:9px;
+    letter-spacing:.02em;
   }
 }
 .section-media.media-left .card{max-width:720px;margin:0 auto}
