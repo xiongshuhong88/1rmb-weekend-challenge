@@ -25,7 +25,7 @@ body.commitment-page{
   margin-bottom:24px;
   backdrop-filter:saturate(140%) blur(8px);
 }
-.commitment-page .commitment-hero__inner{display:flex;align-items:center;gap:12px;padding:14px 4px 12px 4px}
+.commitment-page .commitment-hero__inner{display:flex;align-items:center;gap:12px;padding:14px 4px 12px}
 .commitment-page .commitment-logo{width:14px;height:14px;border-radius:50%;background:conic-gradient(from 0deg,var(--brand),var(--accent));box-shadow:0 0 16px #6ef3a577}
 .commitment-page .commitment-title{
   margin:0;
