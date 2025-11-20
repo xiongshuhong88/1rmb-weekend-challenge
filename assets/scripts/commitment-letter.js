@@ -157,7 +157,7 @@
 
     octx.fillStyle = '#e6edf3';
     octx.font = '700 46px "PingFang SC", Inter, system-ui, sans-serif';
-    octx.fillText('《一块钱周末挑战》承诺书', cardX + 38, cardY + 82);
+    octx.fillText('《百万周末AI社区》承诺书', cardX + 38, cardY + 82);
 
     octx.strokeStyle = 'rgba(255,255,255,.14)';
     octx.lineWidth = 1;
@@ -224,7 +224,7 @@
     octx.font = '500 22px "PingFang SC"';
     octx.fillStyle = '#9fb0c2';
     octx.fillText('签名（Sign）：', sX + 16, sY + 34);
-    octx.fillText('一块钱周末挑战 · weekend.sightx.top', sX + sW - 480, sY + sH - 14);
+    octx.fillText('百万周末AI社区 · MillionWeekend.com', sX + sW - 520, sY + sH - 14);
 
     const scale = Math.min((sW - 32) / pad.width, (sH - 64) / pad.height);
     const sigW = pad.width * scale;
@@ -235,7 +235,7 @@
 
     octx.fillStyle = '#6ef3a5';
     octx.font = '700 22px Inter, system-ui';
-    octx.fillText('1RMBWeekend · 48H', cardX + cardW - 240, cardY + 40);
+    octx.fillText('MillionWeekend · 48H', cardX + cardW - 240, cardY + 40);
   }
 
   function roundRect(context, x, y, w, h, r, fill, stroke) {
@@ -285,7 +285,7 @@
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
           await navigator.share({
             files: [file],
-            title: '一块钱周末挑战 · 承诺书',
+            title: '百万周末AI社区 · 承诺书',
             text: '我已经签下承诺书，周末一起来冲！'
           });
           return true;

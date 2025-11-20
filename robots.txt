@@ -59,4 +59,4 @@ User-agent: anthropic-ai
 Disallow: /
 
 # Sitemap reference
-Sitemap: https://weekend.sightx.top/sitemap.xml
+Sitemap: https://millionweekend.com/sitemap.xml

@@ -1,9 +1,9 @@
-# 一块钱周末挑战 · Landing Page
+# 百万周末AI社区 · Landing Page
 
-首期活动的官方落地页，聚焦「48 小时挑战｜用一个周末赚到你的第一块钱」。页面以纯 HTML/CSS/JS 构建，支持一键上传至 Cloudflare Pages 或任意静态托管服务。
+官方网站的源码，聚焦「48 小时 AI 闭环｜周末做出能收款的 MVP」。页面以纯 HTML/CSS/JS 构建，支持一键上传至 Cloudflare Pages 或任意静态托管服务。
 
 > ℹ️ **隐私说明**  
-> 仓库中所有域名示例均为占位符 `https://your-domain.example`。部署前请替换为你自己的域名，避免泄露真实站点。
+> 仓库中所有域名示例均为占位符（示例：`https://your-domain.example`）。部署前请替换为你自己的域名（当前官方域名：`https://MillionWeekend.com`），避免泄露真实站点。
 
 ---
 
@@ -95,7 +95,7 @@ npm run package           # 打包 dist/ + release/*.zip
 
 ## 🤖 Agent 协作手册
 
-- [agents.md](agents.md) 汇总「一块钱周末挑战」48 小时闭环的角色职责、提示词与时间表，可直接拷贝到各类 AI 对话中。
+- [agents.md](agents.md) 汇总「百万周末AI社区」48 小时闭环的角色职责、提示词与时间表，可直接拷贝到各类 AI 对话中。
 - 建议把 `config/event.json`、`docs/SUMMARY.md` 与 `release/` 打包结果同步在手册里引用，便于 Agent 间共享上下文。
 
 ---
@@ -121,4 +121,4 @@ npm run package           # 打包 dist/ + release/*.zip
 
 ---
 
-让我们在 48 小时内，找到第一个愿意为你的作品买单的人。欢迎加入 **一块钱周末挑战**！💪
+让我们在 48 小时内，跑通下一笔真实收入。欢迎加入 **百万周末AI社区**！💪

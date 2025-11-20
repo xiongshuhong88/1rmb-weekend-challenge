@@ -2,9 +2,10 @@
 // Do NOT edit directly. Update config/event.json instead.
 window.__EVENT_CONFIG__ = {
   "site": {
-    "name": "一块钱周末挑战",
-    "domain": "https://weekend.sightx.top",
-    "heroImage": "https://weekend.sightx.top/hero-multi-device.jpg",
+    "name": "百万周末AI社区",
+    "domain": "https://millionweekend.com",
+    "heroImage": "https://millionweekend.com/assets/images/hero-multi-device.jpg",
+    "logoMark": "MW",
     "github": "https://github.com/xiongshuhong88/1rmb-weekend-challenge",
     "author": "大熊"
   },
