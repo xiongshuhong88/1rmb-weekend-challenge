@@ -35,6 +35,11 @@ function main() {
   const directories = ['assets', 'pages', 'config', 'docs'];
   directories.forEach(dir => copyEntry(dir));
 
+  const verifyFiles = fs
+    .readdirSync(rootDir)
+    .filter(name => name.startsWith('MP_verify_') && name.endsWith('.txt'));
+  verifyFiles.forEach(copyEntry);
+
   copyEntry(path.join('pages', 'commitment-letter.html'), 'commitment-letter.html');
 
   console.info('✅ Build output written to dist/');
