@@ -23,6 +23,10 @@ npm install express axios
    WECHAT_PRIVATE_KEY_PATH=/secure/apiclient_key.pem
    WECHAT_PLATFORM_CERT_PATH=/secure/wechatpay_platform_cert.pem
    WECHAT_NOTIFY_URL=https://yourdomain.com/api/notify
+   PAY_AMOUNT_FEN=1000
+   GROUP_QR_URL=https://your-priv-oss.com/mw-group-qr.png
+   QR_TOKEN_TTL_MS=600000
+   QR_MAX_VIEWS=3
    PORT=3000
    ```
 2. 在服务器放置商户私钥、微信平台证书（勿放仓库），路径与环境变量一致。
@@ -41,9 +45,10 @@ npm install express axios
   });
   ```
 - Native：用 `code_url` 做二维码，同时轮询 `/api/orders/{outTradeNo}` 查状态。
+- 支付成功后从 `/api/orders/{outTradeNo}` 拿到一次性 `token`，再用 `/api/orders/{outTradeNo}/qr?token=xxx` 取微信群二维码（`QR_TOKEN_TTL_MS` 控制有效期，`QR_MAX_VIEWS` 限制次数）。
 
 ## 你需要补全的部分
-- 订单持久化：把内存 Map 替换为数据库（如 MySQL/SQLite）。
+- 订单持久化：把内存 Map 替换为数据库（如 MySQL/SQLite/Redis）。
 - 获取 `openid`：微信内需先做 OAuth，前端带回 `openid`。
 - 金额校验：金额改为后端固定配置，前端不可自定义。
-- 日志 & 风控：记录下单/通知原文；处理重复通知；必要时实现关单、退款。
+- 日志 & 风控：记录下单/通知原文；处理重复通知；必要时实现关单、退款；群二维码建议定期轮换。

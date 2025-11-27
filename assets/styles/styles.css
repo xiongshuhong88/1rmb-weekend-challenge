@@ -2380,6 +2380,19 @@ main.container > .glow-shell:first-child{
 .section-media.media-left .card{max-width:720px;margin:0 auto}
 
 .gradient-text{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.payment-card{display:flex;flex-direction:column;gap:14px}
+.payment-status{padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,0.02);line-height:1.6}
+.payment-status--info{border-color:rgba(94,234,212,0.35)}
+.payment-status--success{border-color:rgba(16,185,129,0.6);background:rgba(16,185,129,0.12)}
+.payment-status--warn{border-color:rgba(245,158,11,0.65);background:rgba(245,158,11,0.08)}
+.payment-status--error{border-color:rgba(248,113,113,0.7);background:rgba(248,113,113,0.12)}
+.payment-progress{font-size:14px;color:var(--muted)}
+.payment-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:8px 12px;border-radius:999px;margin-top:12px}
+.qr-box{border:1px dashed var(--border);border-radius:16px;padding:16px;text-align:center;background:rgba(255,255,255,0.02)}
+.qr-box img{width:260px;max-width:100%;height:260px;object-fit:contain;border-radius:12px;background:rgba(0,0,0,0.3)}
+.qr-box .muted{margin:10px 0 0}
+.code-url-row{margin-top:10px;padding:10px;border-radius:10px;background:rgba(0,0,0,0.25);text-align:left}
+.code-url{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:13px;line-height:1.5;word-break:break-all;color:var(--fg)}
 @media (prefers-reduced-motion: reduce){
   .glow-shell::before,
   .glow-shell::after,

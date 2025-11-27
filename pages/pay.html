@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>支付入群｜百万周末AI社区</title>
+<meta content="支付报名费 ¥10，系统自动返回微信群二维码，加入百万周末AI社区开启 48 小时挑战闭环。" name="description"/>
+<link href="../assets/styles/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="container">
+<nav class="site-nav">
+<div class="site-brand">
+<div aria-hidden="true" class="logo-mark" data-config-text="site.logoMark">MW</div>
+<span class="site-title"><span data-config-text="site.name">百万周末AI社区</span><span class="edition-label" data-config-template=" · {{ value }}" data-config-text="edition.label" id="nav-edition" data-edition-template=" · 第{{n}}期"> · 第 ? 期</span></span>
+</div>
+<div class="chips">
+<a class="chip" href="../index.html">返回首页</a>
+<a class="chip" href="announcement.html">社群公告</a>
+<a class="chip" href="weekend_challenge_flow.html">活动流程</a>
+<a class="chip" href="retrospectives.html">总结目录</a>
+<a class="chip" href="community-highlights.html">启动会目录</a>
+<a class="chip" href="pay.html">支付入群</a>
+</div>
+</nav>
+</header>
+<main class="container">
+<section class="hero glow-shell hero--announcement">
+<div class="hero-copy">
+<span class="badge">支付入群</span>
+<h1>支付 ¥10，立即获取微信群二维码</h1>
+<p>支付成功后，系统会返回微信群二维码，加入群即可同步活动通知、资料包与挑战节奏。二维码有限时与次数限制，防止被外泄。</p>
+<p>如果你在微信内打开本页，会自动拉起微信支付；其他场景则生成支付二维码，扫码即可完成支付。</p>
+<div class="cta-row">
+<button class="btn primary" id="pay-button" type="button">立即支付并获取二维码</button>
+<a class="btn ghost" href="../index.html">返回首页</a>
+<a class="btn ghost" data-config-href="registration.formUrl" href="https://mpb3mz8eqb9l4b0e.mikecrm.com/Uo0ha4o" rel="noopener" target="_blank">备用报名表单</a>
+</div>
+<div class="pill payment-pill" id="pay-pill">
+当前通道：<span id="pay-scene">扫码支付</span>
+</div>
+<p class="muted" id="pay-note">点击按钮后将创建订单，支付成功会自动展示微信群二维码。</p>
+</div>
+<div class="hero-side">
+<div class="card payment-card">
+<div class="payment-status payment-status--info" id="pay-status">点击「立即支付并获取二维码」开始，支付成功后会在右侧展示微信群二维码。</div>
+<div class="payment-progress" id="pay-progress">步骤：创建订单 → 支付 → 自动拉取群二维码</div>
+<div class="qr-box" id="qr-box" hidden>
+<img alt="二维码" id="qr-img" loading="lazy"/>
+<p class="muted" id="qr-hint">支付二维码生成中…</p>
+<div class="code-url-row" id="code-url-row" hidden>
+<small class="muted">如无法扫码，可复制 code_url 到微信中打开：</small>
+<div class="code-url" id="code-url"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section glow-shell" id="pay-steps">
+<div class="section-header">
+<h2>支付与入群说明</h2>
+</div>
+<div class="grid cols-2">
+<div class="card">
+<div class="kicker">步骤 1</div>
+<h3>创建订单并支付</h3>
+<p>点击按钮后自动创建订单。微信内会弹出支付，其他场景生成支付二维码。金额固定为 ¥10（可在后端环境变量修改）。</p>
+</div>
+<div class="card">
+<div class="kicker">步骤 2</div>
+<h3>支付成功 → 获取群二维码</h3>
+<p>服务器收到微信支付回调后签发一次性 token。前端轮询订单并用 token 换取微信群二维码，默认有效期 10 分钟，最多查看 3 次。</p>
+<ul class="bullet-list">
+<li>二维码过期或次数用尽，请联系管理员或重新下单。</li>
+<li>建议保存二维码或添加客服微信以便补发。</li>
+<li>群二维码会定期更新，防止外传。</li>
+<li>如需在微信内免扫码支付，请通过微信 OAuth 获取 openid 后带参访问本页。</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<script src="../assets/scripts/event-config.js"></script>
+<script src="../assets/scripts/apply-config.js"></script>
+<script src="../assets/scripts/main.js"></script>
+<script src="../assets/scripts/pay.js"></script>
+</body>
+</html>

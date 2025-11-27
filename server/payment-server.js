@@ -29,7 +29,11 @@ const {
   WECHAT_MCH_CERT_SERIAL,
   WECHAT_PRIVATE_KEY_PATH,
   WECHAT_PLATFORM_CERT_PATH,
-  WECHAT_NOTIFY_URL
+  WECHAT_NOTIFY_URL,
+  PAY_AMOUNT_FEN,
+  GROUP_QR_URL,
+  QR_TOKEN_TTL_MS,
+  QR_MAX_VIEWS
 } = process.env;
 
 function invariant(cond, msg) {
@@ -46,6 +50,10 @@ invariant(WECHAT_PRIVATE_KEY_PATH, 'WECHAT_PRIVATE_KEY_PATH required');
 invariant(WECHAT_PLATFORM_CERT_PATH, 'WECHAT_PLATFORM_CERT_PATH required');
 invariant(WECHAT_NOTIFY_URL, 'WECHAT_NOTIFY_URL required');
 
+const PAYMENT_AMOUNT_FEN = Number.isFinite(Number(PAY_AMOUNT_FEN)) ? Number(PAY_AMOUNT_FEN) : 1000;
+const TOKEN_TTL_MS = Number.isFinite(Number(QR_TOKEN_TTL_MS)) ? Number(QR_TOKEN_TTL_MS) : 10 * 60 * 1000;
+const TOKEN_MAX_VIEWS = Math.max(1, Number.isFinite(Number(QR_MAX_VIEWS)) ? Number(QR_MAX_VIEWS) : 3);
+
 const mchPrivateKey = fs.readFileSync(path.resolve(WECHAT_PRIVATE_KEY_PATH), 'utf8');
 const platformCert = fs.readFileSync(path.resolve(WECHAT_PLATFORM_CERT_PATH), 'utf8');
 
@@ -61,6 +69,12 @@ const orders = new Map();
 
 function randomStr(len = 16) {
   return crypto.randomBytes(len).toString('hex');
+}
+
+function updateOrder(outTradeNo, data) {
+  const current = orders.get(outTradeNo) || {};
+  orders.set(outTradeNo, { ...current, ...data });
+  return orders.get(outTradeNo);
 }
 
 function signRequest(method, urlPath, body = '') {
@@ -134,7 +148,7 @@ function decryptResource(resource) {
 
 app.post('/api/order', async (req, res) => {
   try {
-    const { scene, openid, formData, amountFen = 1000 } = req.body || {};
+    const { scene, openid, formData } = req.body || {};
     if (!scene || !['jsapi', 'native'].includes(scene)) {
       return res.status(400).json({ error: 'scene must be jsapi or native' });
     }
@@ -143,7 +157,14 @@ app.post('/api/order', async (req, res) => {
     }
 
     const outTradeNo = `wc${Date.now()}${Math.floor(Math.random() * 1000)}`;
-    orders.set(outTradeNo, { status: 'pending', formData, scene, amountFen, createdAt: Date.now() });
+    updateOrder(outTradeNo, {
+      status: 'pending',
+      formData,
+      scene,
+      amountFen: PAYMENT_AMOUNT_FEN,
+      createdAt: Date.now(),
+      tokenViews: 0
+    });
 
     const basePayload = {
       appid: WECHAT_APPID,
@@ -151,7 +172,7 @@ app.post('/api/order', async (req, res) => {
       description: '百万周末AI社区-报名费',
       out_trade_no: outTradeNo,
       notify_url: WECHAT_NOTIFY_URL,
-      amount: { total: Number(amountFen) || 1000, currency: 'CNY' }
+      amount: { total: PAYMENT_AMOUNT_FEN, currency: 'CNY' }
     };
 
     if (scene === 'jsapi') {
@@ -186,7 +207,18 @@ app.post('/api/notify', async (req, res) => {
     const data = decryptResource(event.resource);
     const { out_trade_no: outTradeNo, trade_state: tradeState, transaction_id: transactionId } = data;
     const order = orders.get(outTradeNo) || {};
-    orders.set(outTradeNo, { ...order, status: tradeState, transactionId, notifySerial: serial, paidAt: Date.now() });
+    const updates = {
+      status: tradeState,
+      transactionId,
+      notifySerial: serial,
+      paidAt: Date.now()
+    };
+    if (tradeState === 'SUCCESS' && !order.token) {
+      updates.token = randomStr(12);
+      updates.tokenExpiresAt = Date.now() + TOKEN_TTL_MS;
+      updates.tokenViews = 0;
+    }
+    updateOrder(outTradeNo, updates);
 
     return res.json({ code: 'SUCCESS', message: 'OK' });
   } catch (err) {
@@ -198,7 +230,47 @@ app.post('/api/notify', async (req, res) => {
 app.get('/api/orders/:outTradeNo', (req, res) => {
   const order = orders.get(req.params.outTradeNo);
   if (!order) return res.status(404).json({ error: 'not_found' });
-  res.json({ outTradeNo: req.params.outTradeNo, status: order.status, transactionId: order.transactionId });
+  const response = {
+    outTradeNo: req.params.outTradeNo,
+    status: order.status,
+    transactionId: order.transactionId,
+    amountFen: order.amountFen,
+    scene: order.scene
+  };
+  const now = Date.now();
+  if (order.status === 'SUCCESS' && order.token && (!order.tokenExpiresAt || order.tokenExpiresAt > now)) {
+    response.token = order.token;
+    response.tokenExpiresAt = order.tokenExpiresAt;
+  }
+  res.json(response);
+});
+
+app.get('/api/orders/:outTradeNo/qr', (req, res) => {
+  const outTradeNo = req.params.outTradeNo;
+  const token = req.query.token;
+  const order = orders.get(outTradeNo);
+  if (!order) return res.status(404).json({ error: 'not_found' });
+  if (order.status !== 'SUCCESS') return res.status(403).json({ error: 'not_paid' });
+  if (!order.token || !token || token !== order.token) {
+    return res.status(403).json({ error: 'token_invalid' });
+  }
+  const now = Date.now();
+  if (order.tokenExpiresAt && order.tokenExpiresAt < now) {
+    return res.status(403).json({ error: 'token_expired' });
+  }
+  if (!GROUP_QR_URL) {
+    return res.status(500).json({ error: 'qr_not_configured' });
+  }
+  const views = Number.isFinite(order.tokenViews) ? order.tokenViews : 0;
+  if (views >= TOKEN_MAX_VIEWS) {
+    return res.status(429).json({ error: 'token_view_limit' });
+  }
+  updateOrder(outTradeNo, { tokenViews: views + 1 });
+  return res.json({
+    image: GROUP_QR_URL,
+    expiresAt: order.tokenExpiresAt,
+    remainingViews: Math.max(0, TOKEN_MAX_VIEWS - views - 1)
+  });
 });
 
 const port = process.env.PORT || 3000;
